@@ -10,15 +10,45 @@ const { title } = Astro.props;
 
 const baseTheme = SITE_CONFIG.baseTheme;
 const defaultTheme = `${baseTheme}-dark`;
+
+const siteTitle = title || 'Camilo Acuña Yáñez | Analista de Datos y BI';
+const siteDescription = 'Portafolio profesional de Camilo Acuña Yáñez: proyectos de análisis de datos, Business Intelligence, Power BI, Python, SQL, Excel, VBA y automatización.';
+const siteUrl = 'https://camiloacunay.github.io/';
+const previewImage = 'https://camiloacunay.github.io/web.jpg';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{siteTitle}</title>
+
+    <meta 
+      name="description" 
+      content={siteDescription} 
+    />
+
     <link rel="icon" type="image/png" href="/favicon.ico" />
-    <title>{title}</title>
+
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portafolio Profesional | Camilo Acuña Yáñez" />
+    <meta property="og:description" content={siteDescription} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={previewImage} />
+    <meta property="og:image:secure_url" content={previewImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:site_name" content="Portafolio Profesional | Camilo Acuña Yáñez" />
+
+    <!-- Twitter / X Preview -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Portafolio Profesional | Camilo Acuña Yáñez" />
+    <meta name="twitter:description" content={siteDescription} />
+    <meta name="twitter:image" content={previewImage} />
 
     <!-- THEME TOGGLE SCRIPT -->
     <script is:inline define:vars={{ baseTheme, defaultTheme }}>
@@ -41,19 +71,21 @@ const defaultTheme = `${baseTheme}-dark`;
     ></div>
 
     <main class="px-2 sm:px-12 md:px-14 lg:px-28 max-w-360 mx-auto relative z-0">
-        <slot />
+      <slot />
     </main>
 
     <button
       id="to-top"
       class="fixed bottom-8 right-8 z-50 p-0 rounded-full bg-background border border-accent/10 shadow-2xl transition-all duration-500 translate-y-20 opacity-0 group flex items-center justify-center cursor-pointer"
-      aria-label="Back to top"
+      aria-label="Volver arriba"
     >
       <svg class="w-14 h-14 -rotate-90">
         <circle cx="28" cy="28" r="24" fill="none" stroke="currentColor" stroke-width="3" class="text-accent/5"></circle>
         <circle
           id="progress-circle"
-          cx="28" cy="28" r="24"
+          cx="28"
+          cy="28"
+          r="24"
           fill="none"
           stroke="currentColor" 
           stroke-width="3"
@@ -73,8 +105,7 @@ const defaultTheme = `${baseTheme}-dark`;
 
     <script>
       const container = document.getElementById('matrix-container');
-      const characters = "{}[]()<>/\=+*01;";
-      // const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@&%";
+      const characters = "{}[]()<>/\\=+*01;";
       const colors = ["#FF4500", "#32CD32", "#1E90FF", "#FFD700", "#8A2BE2", "#FF1493"];
 
       function createLetter() {
@@ -82,12 +113,11 @@ const defaultTheme = `${baseTheme}-dark`;
 
         const span = document.createElement('span');
         const char = characters[Math.floor(Math.random() * characters.length)];
-        // const color = colors[Math.floor(Math.random() * colors.length)];
         const color = "var(--color-textrain)";
         
         const left = Math.random() * 100; 
-        const duration = 4 + Math.random() * 8; // 4s to 10s
-        const size = 10 + Math.random() * 10; // 10px to 20px
+        const duration = 4 + Math.random() * 8;
+        const size = 10 + Math.random() * 10;
         
         span.innerText = char;
         span.className = 'falling-letter';
@@ -95,8 +125,6 @@ const defaultTheme = `${baseTheme}-dark`;
         span.style.color = color;
         span.style.fontSize = `${size}px`;
         span.style.animationDuration = `${duration}s`;
-        
-        // Add a slight glow effect
         span.style.textShadow = `0 0 5px ${color}`;
         
         container.appendChild(span);
@@ -106,12 +134,9 @@ const defaultTheme = `${baseTheme}-dark`;
         }, duration * 1000);
       }
 
-
       if (window.innerWidth > 768) {
-        // one letter every 250ms
         setInterval(createLetter, 250);
       } else {
-        // Static scatter effect for mobile optimization
         const mobileCount = 20; 
         for (let i = 0; i < mobileCount; i++) {
           createStaticLetter();
@@ -126,13 +151,11 @@ const defaultTheme = `${baseTheme}-dark`;
         const color = "var(--color-textrain)";
         
         const left = Math.random() * 100; 
-        const top = Math.random() * 90; // Random vertical position
+        const top = Math.random() * 90;
         const size = 10 + Math.random() * 10;
         
         span.innerText = char;
-        span.className = 'falling-letter'; // from global.css
-        
-        // Override animation for mobile 'none'
+        span.className = 'falling-letter';
         span.style.animation = 'none'; 
         span.style.left = `${left}vw`;
         span.style.top = `${top}vh`;
@@ -144,24 +167,22 @@ const defaultTheme = `${baseTheme}-dark`;
         container.appendChild(span);
       }
 
-      
-      // ** SCROLL TO TOP ** //
+      // Scroll to top
       const toTopBtn = document.getElementById('to-top');
       const progressCircle = document.getElementById('progress-circle');
-      const circumference = 150.796; // 2 * pi * 24
+      const circumference = 150.796;
       const arrowIcon = toTopBtn?.querySelector('.absolute');
 
       function handleScroll() {
         const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercentage = window.scrollY / scrollHeight;
         
-        // Update the Circle Progress
         const offset = circumference - (scrollPercentage * circumference);
+
         if (progressCircle) {
           progressCircle.style.strokeDashoffset = offset.toString();
         }
 
-        // Visibility Logic (Appear at 50%)
         if (scrollPercentage > 0.5) {
           toTopBtn?.classList.remove('translate-y-20', 'opacity-0');
           toTopBtn?.classList.add('translate-y-0', 'opacity-100');
@@ -170,7 +191,6 @@ const defaultTheme = `${baseTheme}-dark`;
           toTopBtn?.classList.remove('translate-y-0', 'opacity-100');
         }
 
-        // Bounce Logic at 98%
         if (scrollPercentage > 0.98) {
           arrowIcon?.classList.add('animate-bounce-twice');
         } else {
@@ -180,52 +200,46 @@ const defaultTheme = `${baseTheme}-dark`;
 
       window.addEventListener('scroll', handleScroll, { passive: true });
 
-      // toTopBtn?.addEventListener('click', () => {
-      //   window.scrollTo({ top: 0, behavior: 'smooth' });
-      // });
-
       toTopBtn?.addEventListener('click', () => {
-      arrowIcon?.classList.add('launching');
+        arrowIcon?.classList.add('launching');
 
-      const startPosition = window.scrollY;
-      const duration = 750;
-      let startTime: number | null = null;
-      let requestID: number; // storing the ID here
+        const startPosition = window.scrollY;
+        const duration = 750;
+        let startTime: number | null = null;
+        let requestID: number;
 
-      const stopAnimation = () => {
-        cancelAnimationFrame(requestID);
-        arrowIcon?.classList.remove('launching');
-        // Remove listeners once stopped
-        window.removeEventListener('wheel', stopAnimation);
-        window.removeEventListener('touchmove', stopAnimation);
-      };
+        const stopAnimation = () => {
+          cancelAnimationFrame(requestID);
+          arrowIcon?.classList.remove('launching');
+          window.removeEventListener('wheel', stopAnimation);
+          window.removeEventListener('touchmove', stopAnimation);
+        };
 
-      function easeOutQuad(t: number, b: number, c: number, d: number) {
-        t /= d;
-        return -c * t * (t - 2) + b;
-      }
-
-      function animation(currentTime: number) {
-        if (startTime === null) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const run = easeOutQuad(timeElapsed, startPosition, -startPosition, duration);
-        
-        window.scrollTo(0, run);
-
-        if (timeElapsed < duration) {
-          requestID = requestAnimationFrame(animation);
-        } else {
-          stopAnimation();
+        function easeOutQuad(t: number, b: number, c: number, d: number) {
+          t /= d;
+          return -c * t * (t - 2) + b;
         }
-      }
 
-      // Listen for any user interruption
-      window.addEventListener('wheel', stopAnimation, { once: true });
-      window.addEventListener('touchmove', stopAnimation, { once: true });
+        function animation(currentTime: number) {
+          if (startTime === null) startTime = currentTime;
 
-      requestID = requestAnimationFrame(animation);
-    });
+          const timeElapsed = currentTime - startTime;
+          const run = easeOutQuad(timeElapsed, startPosition, -startPosition, duration);
+          
+          window.scrollTo(0, run);
 
+          if (timeElapsed < duration) {
+            requestID = requestAnimationFrame(animation);
+          } else {
+            stopAnimation();
+          }
+        }
+
+        window.addEventListener('wheel', stopAnimation, { once: true });
+        window.addEventListener('touchmove', stopAnimation, { once: true });
+
+        requestID = requestAnimationFrame(animation);
+      });
     </script>
   </body>
 </html>
