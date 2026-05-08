@@ -2,7 +2,7 @@
   {
     "title": "Dashboard Comercial Retail 2024",
     "description": "Dashboard interactivo desarrollado en Power BI para analizar ventas, ingresos, ticket promedio, productos, clientes, regiones y métodos de pago. El proyecto permite monitorear el desempeño comercial mediante KPIs, visualizaciones ejecutivas y filtros dinámicos para apoyar la toma de decisiones.",
-    "images": ["Dashboard comercial 01.jpg", "Dashboard comercial 02.jpg"],
+    "images": ["Dashboard comercial 01.jpg", "Dashboard comercial 02.jpg", "Dashboard comercial 03.jpg"],
     "tech": ["Power BI", "DAX", "Power Query", "Modelado de datos"],
     "platforms": ["web"],
     "link": "/proyectos/dashboard-comercial-retail-2024/",
@@ -11,7 +11,7 @@
   {
     "title": "Análisis de Ejecución Presupuestaria 2026",
     "description": "Proyecto de análisis de datos públicos orientado a estudiar la ejecución presupuestaria de iniciativas de inversión en Chile. Incluye limpieza, estructuración y exploración de datos para identificar patrones de ejecución, distribución territorial, montos aprobados y oportunidades de análisis para dashboards ejecutivos.",
-    "images": ["Gobierno01.jpg", "Gobierno02.jpg", "Gobierno03.jpg"],
+    "images": ["Gobierno01.jpg", "Gobierno02.jpg", "Gobierno03.jpg", "Gobierno04.jpg", "Gobierno05.jpg"],
     "tech": ["Python", "Pandas", "Power BI", "Datos públicos"],
     "platforms": ["web"],
     "link": "#",
