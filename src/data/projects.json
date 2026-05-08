@@ -5,7 +5,7 @@
     "images": ["astro-01.webp", "astro-02.jpeg"],
     "tech": ["Power BI", "DAX", "Power Query", "Modelado de datos"],
     "platforms": ["web"],
-    "link": "https://app.powerbi.com/view?r=eyJrIjoiY2FmYTExMjUtZGVjMi00YjRhLWFiMTctMjQ2MjVkMGVhOTVlIiwidCI6ImUyMDIzYzZiLTI3NDgtNDM2ZS1hZGU3LTk0MjZhZDFlMDZjNSJ9",
+    "link": "/proyectos/dashboard-comercial-retail-2024/",
     "category": "Business Intelligence"
   },
   {
