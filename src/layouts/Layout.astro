@@ -12,7 +12,10 @@ const baseTheme = SITE_CONFIG.baseTheme;
 const defaultTheme = `${baseTheme}-dark`;
 
 const siteTitle = title || 'Camilo Acuña Yáñez | Analista de Datos y BI';
-const siteDescription = 'Portafolio profesional de Camilo Acuña Yáñez: proyectos de análisis de datos, Business Intelligence, Power BI, Python, SQL, Excel, VBA y automatización.';
+
+const siteDescription =
+  'Portafolio profesional de Camilo Acuña Yáñez, con proyectos de análisis de datos, inteligencia de negocios, dashboards en Power BI, Python, SQL, Excel, VBA y automatización de procesos.';
+
 const siteUrl = 'https://camiloacunay.github.io/';
 const previewImage = 'https://camiloacunay.github.io/web.jpg';
 ---
@@ -25,30 +28,34 @@ const previewImage = 'https://camiloacunay.github.io/web.jpg';
 
     <title>{siteTitle}</title>
 
-    <meta 
-      name="description" 
-      content={siteDescription} 
-    />
+    <meta name="title" content="Portafolio Profesional | Camilo Acuña Yáñez" />
+    <meta name="description" content={siteDescription} />
+    <meta name="author" content="Camilo Acuña Yáñez" />
+    <meta name="robots" content="index, follow" />
 
+    <link rel="canonical" href={siteUrl} />
     <link rel="icon" type="image/png" href="/favicon.ico" />
 
-    <!-- Open Graph / LinkedIn -->
+    <!-- Open Graph / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Portafolio Profesional | Camilo Acuña Yáñez" />
     <meta property="og:description" content={siteDescription} />
     <meta property="og:url" content={siteUrl} />
+    <meta property="og:site_name" content="Portafolio Profesional | Camilo Acuña Yáñez" />
+    <meta property="og:locale" content="es_CL" />
     <meta property="og:image" content={previewImage} />
     <meta property="og:image:secure_url" content={previewImage} />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="627" />
-    <meta property="og:site_name" content="Portafolio Profesional | Camilo Acuña Yáñez" />
+    <meta property="og:image:alt" content="Portafolio profesional de Camilo Acuña Yáñez, Analista de Datos y BI" />
 
     <!-- Twitter / X Preview -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Portafolio Profesional | Camilo Acuña Yáñez" />
     <meta name="twitter:description" content={siteDescription} />
     <meta name="twitter:image" content={previewImage} />
+    <meta name="twitter:image:alt" content="Portafolio profesional de Camilo Acuña Yáñez, Analista de Datos y BI" />
 
     <!-- THEME TOGGLE SCRIPT -->
     <script is:inline define:vars={{ baseTheme, defaultTheme }}>
@@ -63,6 +70,7 @@ const previewImage = 'https://camiloacunay.github.io/web.jpg';
     </script>
 
   </head>
+
   <body class="bg-container relative min-h-screen overflow-x-hidden antialiased">
     <div 
       id="matrix-container" 
