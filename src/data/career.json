@@ -1,26 +1,74 @@
 [
   {
-    "company": "Demo Company",
-    "role": "Lead Software Engineer",
-    "period": "Oct 2025 - Present",
-    "type": "Full time job",
-    "description": "Leading cross-platform mobile development using Flutter and FastAPI. Focused on scalable system design and high-performance data processing.",
-    "skills": ["Leading", "Collaboration"]
+    "company": "Comisión Económica para América Latina y el Caribe (CEPAL)",
+    "role": "Analista Senior de Datos y Reporting",
+    "period": "May 2024 - Mar 2026",
+    "type": "Experiencia profesional",
+    "description": "Elaboré análisis de datos, reportes ejecutivos e indicadores para apoyar la toma de decisiones de la División de Desarrollo Social. Actualicé, estructuré y validé bases de datos para estudios regionales, resguardando calidad, consistencia y trazabilidad de la información.",
+    "skills": ["Análisis de datos", "Reporting ejecutivo", "Power BI", "Python", "Excel", "SQL", "Validación de datos", "KPIs"]
   },
   {
-    "company": "Demo Company",
-    "role": "Full-stack Developer",
-    "period": "Sep 2023 - Sep 2025",
-    "type": "Full time job",
-    "description": "Specializing in Business Research Methods and Strategic HRM. Applying analytical frameworks to human capital management.",
-    "skills": ["React", "Node.js", "PostgreSQL", "Docker"]
+    "company": "BTG Pactual Chile",
+    "role": "Analista de Datos y Finanzas Comerciales - Operaciones de Equity",
+    "period": "Oct 2023 - May 2024",
+    "type": "Experiencia profesional",
+    "description": "Generé reportes ejecutivos para el seguimiento de indicadores operacionales y financieros. Analicé y validé transacciones internacionales del área de equity, resguardando consistencia, cuadratura y confiabilidad de la información operativa.",
+    "skills": ["Análisis financiero", "Reporting", "Control operacional", "Excel", "VBA", "Automatización", "Validación de transacciones"]
   },
   {
-    "company": "Demo University of Tech",
-    "role": "BSc in Computer Science",
-    "period": "Jun 2020 - Jun 2024",
-    "type": "Student",
-    "description": "Specializing in Business Research Methods and Strategic HRM. Applying analytical frameworks to human capital management.",
-    "skills": ["C++", "OOP", "Problem Solving"]
+    "company": "PICTON",
+    "role": "Analista de Operaciones Financieras y Automatización",
+    "period": "Ene 2023 - Sep 2023",
+    "type": "Experiencia profesional",
+    "description": "Ejecuté control, validación y carga de operaciones diarias de renta fija y renta variable. Automaticé controles operacionales mediante VBA, reduciendo tiempos de revisión manual y mejorando la eficiencia del proceso.",
+    "skills": ["Operaciones financieras", "Automatización", "VBA", "Excel", "Control de datos", "Mejora de procesos"]
+  },
+  {
+    "company": "Comisión Económica para América Latina y el Caribe (CEPAL)",
+    "role": "Analista Senior de Datos y Reporting",
+    "period": "Oct 2020 - Nov 2022",
+    "type": "Experiencia profesional",
+    "description": "Elaboré análisis de datos, estadísticos y econométricos para apoyar reportes e iniciativas de la División de Desarrollo Social. Participé en estudios sobre inclusión y cohesión social en América Latina y el Caribe, contribuyendo a la interpretación de resultados y preparación de insumos técnicos para publicaciones institucionales.",
+    "skills": ["Análisis estadístico", "Econometría", "Stata", "Python", "Excel", "Power BI", "Bases de datos", "Publicaciones"]
+  },
+  {
+    "company": "Gasfiter a tu Casa",
+    "role": "Administrador de Sitio Web y Marketing Digital",
+    "period": "Jun 2015 - Dic 2019",
+    "type": "Experiencia complementaria",
+    "description": "Gestioné la presencia digital de una pyme familiar, incluyendo sitio web, redes sociales y campañas en Google Ads. Analicé métricas de tráfico, consultas y rendimiento de campañas para apoyar la captación de clientes y mejorar la visibilidad del negocio.",
+    "skills": ["Google Analytics", "Google Ads", "Marketing digital", "Métricas web", "Análisis comercial", "SEO"]
+  },
+  {
+    "company": "Universidad de Santiago de Chile",
+    "role": "Ayudante de Curso de Computación",
+    "period": "Abr 2020 - Sep 2020",
+    "type": "Experiencia académica",
+    "description": "Realicé clases de apoyo para el curso de computación, reforzando contenidos orientados al análisis y manejo de datos. Apoyé la enseñanza de herramientas como Excel avanzado y Stata.",
+    "skills": ["Excel avanzado", "Stata", "Docencia", "Análisis de datos", "Apoyo académico"]
+  },
+  {
+    "company": "AFP Provida",
+    "role": "Pasante Analista de Datos",
+    "period": "Feb 2019 - Jul 2019",
+    "type": "Práctica profesional",
+    "description": "Analicé y estructuré datos para la elaboración de reportes en la Gerencia de Operaciones. Participé en proyectos vinculados a digitalización y gestión documental, apoyando la organización, validación y disponibilidad de información operativa.",
+    "skills": ["Análisis de datos", "Reportes", "Operaciones", "Gestión documental", "Validación de información"]
+  },
+  {
+    "company": "Coderhouse",
+    "role": "Data Scientist",
+    "period": "Ene 2025 - Feb 2026",
+    "type": "Formación",
+    "description": "Programa de formación en Data Science con foco en análisis de datos, visualización, reporting, automatización, fundamentos de machine learning y desarrollo de proyectos aplicados.",
+    "skills": ["Data Analytics", "Data Science", "Python", "Machine Learning", "Visualización de datos", "Modelos predictivos"]
+  },
+  {
+    "company": "Universidad de Santiago de Chile (USACH)",
+    "role": "Ingeniero Comercial, mención en Economía",
+    "period": "Mar 2015 - Dic 2019",
+    "type": "Formación académica",
+    "description": "Formación profesional en economía, análisis cuantitativo, gestión, finanzas y toma de decisiones. Licenciado en Ciencias Económicas.",
+    "skills": ["Economía", "Análisis cuantitativo", "Finanzas", "Gestión", "Estadística"]
   }
 ]
