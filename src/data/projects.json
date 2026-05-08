@@ -11,20 +11,11 @@
   {
     "title": "Análisis de Ejecución Presupuestaria 2026",
     "description": "Proyecto de análisis de datos públicos orientado a estudiar la ejecución presupuestaria de iniciativas de inversión en Chile. Incluye limpieza, estructuración y exploración de datos para identificar patrones de ejecución, distribución territorial, montos aprobados y oportunidades de análisis para dashboards ejecutivos.",
-    "images": ["placeholder.jpeg", "astro-01.webp"],
+    "images": ["Gobierno01.jpg", "Gobierno02.jpg", "Gobierno03.jpg"],
     "tech": ["Python", "Pandas", "Power BI", "Datos públicos"],
     "platforms": ["web"],
     "link": "#",
     "category": "Data Analytics"
-  },
-  {
-    "title": "Análisis de Importaciones Chile 2026",
-    "description": "Proyecto de procesamiento y análisis de datos de importaciones, enfocado en limpieza de nombres de emisores, estandarización de categorías, análisis de concentración y preparación de información para visualización en Power BI. El objetivo es transformar datos operacionales desordenados en información clara para análisis comercial.",
-    "images": ["placeholder.jpeg", "astro-02.jpeg"],
-    "tech": ["Python", "Pandas", "Power Query", "Power BI"],
-    "platforms": ["web"],
-    "link": "#",
-    "category": "Data Cleaning"
   },
   {
     "title": "Cohesión Social en América Latina y el Caribe - CEPAL",
