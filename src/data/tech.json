@@ -1,35 +1,53 @@
 {
   "categories": [
     {
-      "title": "Mobile Development",
+      "title": "Business Intelligence y Visualización",
       "skills": [
-        { "name": "Flutter", "level": 3, "icon": "skill-icons:flutter-dark" },
-        { "name": "Dart", "level": 3, "icon": "skill-icons:dart-dark" },
-        { "name": "Kotlin", "level": 1, "icon": "skill-icons:kotlin-dark" }
+        { "name": "Power BI", "level": 3, "icon": "mdi:chart-bar" },
+        { "name": "DAX", "level": 2, "icon": "mdi:function-variant" },
+        { "name": "Power Query", "level": 2, "icon": "mdi:database-sync" },
+        { "name": "Dashboards", "level": 3, "icon": "mdi:view-dashboard" },
+        { "name": "KPIs", "level": 3, "icon": "mdi:chart-line" }
       ]
     },
     {
-      "title": "Frontend",
+      "title": "Análisis de Datos y Programación",
       "skills": [
-        { "name": "Astro", "level": 2, "icon": "skill-icons:astro" },
-        { "name": "HTML", "level": 2, "icon": "skill-icons:html" },
-        { "name": "CSS", "level": 2, "icon": "skill-icons:css" },
-        { "name": "Tailwind CSS", "level": 1, "icon": "skill-icons:tailwindcss-dark" }
+        { "name": "Python", "level": 3, "icon": "skill-icons:python-dark" },
+        { "name": "Pandas", "level": 2, "icon": "mdi:language-python" },
+        { "name": "SQL", "level": 2, "icon": "mdi:database-search" },
+        { "name": "Stata", "level": 2, "icon": "mdi:chart-box" },
+        { "name": "Machine Learning", "level": 1, "icon": "mdi:robot" }
       ]
     },
     {
-      "title": "Backend",
+      "title": "Automatización y Productividad",
       "skills": [
-        { "name": "FastAPI", "level": 2, "icon": "skill-icons:fastapi" },
-        { "name": "Python", "level": 2, "icon": "skill-icons:python-dark" },
-        { "name": "Firebase", "level": 3, "icon": "vscode-icons:file-type-firebase" }
+        { "name": "Excel Avanzado", "level": 3, "icon": "mdi:microsoft-excel" },
+        { "name": "VBA", "level": 3, "icon": "mdi:file-code" },
+        { "name": "Automatización de procesos", "level": 3, "icon": "mdi:cog-sync" },
+        { "name": "Reporting ejecutivo", "level": 3, "icon": "mdi:file-chart" },
+        { "name": "Control de gestión", "level": 2, "icon": "mdi:clipboard-check" }
       ]
     },
     {
-      "title": "Database",
+      "title": "Bases de Datos y Modelado",
       "skills": [
-        { "name": "SQLite", "level": 3, "icon": "skill-icons:sqlite" },
-        { "name": "PostgreSQL", "level": 2, "icon": "skill-icons:postgresql-dark" }
+        { "name": "Modelado de datos", "level": 2, "icon": "mdi:database-cog" },
+        { "name": "Limpieza de datos", "level": 3, "icon": "mdi:broom" },
+        { "name": "Validación de datos", "level": 3, "icon": "mdi:database-check" },
+        { "name": "ETL", "level": 2, "icon": "mdi:database-arrow-right" },
+        { "name": "PostgreSQL", "level": 1, "icon": "skill-icons:postgresql-dark" }
+      ]
+    },
+    {
+      "title": "Herramientas y Desarrollo de Portafolio",
+      "skills": [
+        { "name": "GitHub", "level": 2, "icon": "mdi:github" },
+        { "name": "Git", "level": 2, "icon": "skill-icons:git" },
+        { "name": "Astro", "level": 1, "icon": "skill-icons:astro" },
+        { "name": "HTML", "level": 1, "icon": "skill-icons:html" },
+        { "name": "CSS", "level": 1, "icon": "skill-icons:css" }
       ]
     }
   ]
