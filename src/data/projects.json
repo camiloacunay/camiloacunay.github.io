@@ -14,7 +14,7 @@
     "images": ["Gobierno01.jpg", "Gobierno02.jpg", "Gobierno03.jpg", "Gobierno04.jpg", "Gobierno05.jpg"],
     "tech": ["Python", "Pandas", "Power BI", "Datos públicos"],
     "platforms": ["web"],
-    "link": "#",
+    "link": "/proyectos/analisis-ejecucion-presupuestaria-2026/",
     "category": "Data Analytics"
   },
   {
