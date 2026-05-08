@@ -4,6 +4,9 @@ import "../../styles/global.css";
 const dashboardUrl =
   "https://app.powerbi.com/view?r=eyJrIjoiY2FmYTExMjUtZGVjMi00YjRhLWFiMTctMjQ2MjVkMGVhOTVlIiwidCI6ImUyMDIzYzZiLTI3NDgtNDM2ZS1hZGU3LTk0MjZhZDFlMDZjNSJ9";
 
+const datasetUrl =
+  "https://www.kaggle.com/datasets/dataregina/datasets-para-proyecto-bi";
+
 const kpis = [
   {
     title: "Ingresos",
@@ -26,9 +29,9 @@ const kpis = [
 const processSteps = [
   {
     number: "01",
-    title: "Preparación de datos",
+    title: "Obtención y preparación de datos",
     description:
-      "Revisión de campos, tipos de datos, fechas, productos, clientes, regiones, categorías y métodos de pago para asegurar una estructura consistente antes del análisis."
+      "Descarga del dataset original desde Kaggle, revisión de campos, tipos de datos, fechas, productos, clientes, regiones, categorías y métodos de pago para asegurar una estructura consistente antes del análisis."
   },
   {
     number: "02",
@@ -51,7 +54,7 @@ const processSteps = [
     <title>Dashboard Comercial Retail 2024 | Camilo Acuña</title>
     <meta
       name="description"
-      content="Caso de estudio de dashboard comercial desarrollado en Power BI para analizar ventas, ingresos, productos, clientes, regiones y métodos de pago."
+      content="Caso de estudio de dashboard comercial desarrollado en Power BI para analizar ventas, ingresos, productos, clientes, regiones y métodos de pago a partir de un dataset público disponible en Kaggle."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
@@ -91,10 +94,10 @@ const processSteps = [
 
           <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
             Proyecto de análisis y visualización desarrollado en Power BI para monitorear
-            el desempeño comercial de una operación retail. El dashboard permite analizar
-            ingresos, ventas, ticket promedio, unidades vendidas, clientes, categorías,
-            regiones, productos y métodos de pago mediante indicadores ejecutivos y filtros
-            dinámicos.
+            el desempeño comercial de una operación retail a partir de un dataset público
+            disponible en Kaggle. El dashboard permite analizar ingresos, ventas, ticket
+            promedio, unidades vendidas, clientes, categorías, regiones, productos y métodos
+            de pago mediante indicadores ejecutivos y filtros dinámicos.
           </p>
 
           <div class="mt-8 flex flex-wrap gap-3">
@@ -103,6 +106,7 @@ const processSteps = [
             <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">Power Query</span>
             <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">Modelado de datos</span>
             <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">KPIs</span>
+            <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">Kaggle</span>
           </div>
 
           <div class="mt-10 flex flex-wrap gap-4">
@@ -113,6 +117,13 @@ const processSteps = [
               class="rounded-xl bg-cyan-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300"
             >
               Ver dashboard en Power BI
+            </a>
+
+            <a
+              href="#fuente"
+              class="rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 transition hover:border-cyan-400/60 hover:text-white"
+            >
+              Ver fuente de datos
             </a>
 
             <a
@@ -157,8 +168,8 @@ const processSteps = [
           </div>
 
           <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-            <p class="text-sm text-slate-400">Foco</p>
-            <p class="mt-2 text-lg font-semibold text-white">Ventas</p>
+            <p class="text-sm text-slate-400">Fuente</p>
+            <p class="mt-2 text-lg font-semibold text-white">Kaggle</p>
           </div>
 
           <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
@@ -183,6 +194,50 @@ const processSteps = [
             cuánto se vendió, qué productos explican los ingresos, qué categorías concentran mayor valor,
             qué regiones tienen mejor desempeño y cómo se distribuyen los métodos de pago.
           </p>
+        </div>
+      </section>
+
+      <!-- Data source -->
+      <section id="fuente" class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <div class="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-widest text-cyan-300">
+                Fuente de datos
+              </p>
+
+              <h2 class="mt-3 text-3xl font-bold text-white">
+                Dataset original utilizado
+              </h2>
+
+              <p class="mt-4 text-slate-400">
+                El análisis se construyó a partir de un dataset público disponible en Kaggle,
+                utilizado como base para preparar, modelar y visualizar la información comercial
+                en Power BI.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-6">
+              <h3 class="text-xl font-semibold text-white">
+                Datasets para Proyecto BI
+              </h3>
+
+              <p class="mt-3 leading-7 text-slate-300">
+                Fuente original desde la cual se obtuvo la base utilizada para desarrollar
+                el análisis comercial retail, incluyendo datos necesarios para construir
+                indicadores, dimensiones de análisis y visualizaciones ejecutivas.
+              </p>
+
+              <a
+                href={datasetUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-6 inline-flex rounded-xl border border-cyan-400/30 bg-cyan-400/10 px-5 py-3 text-sm font-semibold text-cyan-300 transition hover:border-cyan-400/70 hover:bg-cyan-400/20 hover:text-cyan-200"
+              >
+                Abrir dataset en Kaggle
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -352,6 +407,15 @@ const processSteps = [
               class="rounded-xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300"
             >
               Abrir dashboard en Power BI
+            </a>
+
+            <a
+              href={datasetUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-xl border border-cyan-400/30 bg-cyan-400/10 px-6 py-3 font-semibold text-cyan-300 transition hover:border-cyan-400/70 hover:bg-cyan-400/20 hover:text-cyan-200"
+            >
+              Ver dataset original
             </a>
 
             <a
