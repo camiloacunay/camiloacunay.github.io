@@ -17,6 +17,7 @@
         { "name": "Pandas", "level": 2, "icon": "mdi:language-python" },
         { "name": "SQL", "level": 2, "icon": "mdi:database-search" },
         { "name": "Stata", "level": 2, "icon": "mdi:chart-box" },
+        { "name": "RStudio", "level": 2, "icon": "mdi:language-r" },
         { "name": "Machine Learning", "level": 1, "icon": "mdi:robot" }
       ]
     },
@@ -25,7 +26,7 @@
       "skills": [
         { "name": "Excel Avanzado", "level": 3, "icon": "mdi:microsoft-excel" },
         { "name": "VBA", "level": 3, "icon": "mdi:file-code" },
-        { "name": "Automatización de procesos", "level": 3, "icon": "mdi:cog-sync" },
+        { "name": "Automatización", "level": 3, "icon": "mdi:cog-sync" },
         { "name": "Reporting ejecutivo", "level": 3, "icon": "mdi:file-chart" },
         { "name": "Control de gestión", "level": 2, "icon": "mdi:clipboard-check" }
       ]
@@ -36,8 +37,7 @@
         { "name": "Modelado de datos", "level": 2, "icon": "mdi:database-cog" },
         { "name": "Limpieza de datos", "level": 3, "icon": "mdi:broom" },
         { "name": "Validación de datos", "level": 3, "icon": "mdi:database-check" },
-        { "name": "ETL", "level": 2, "icon": "mdi:database-arrow-right" },
-        { "name": "PostgreSQL", "level": 1, "icon": "skill-icons:postgresql-dark" }
+        { "name": "ETL", "level": 2, "icon": "mdi:database-arrow-right" }
       ]
     },
     {
