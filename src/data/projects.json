@@ -20,7 +20,7 @@
   {
     "title": "Cohesión Social en América Latina y el Caribe - CEPAL",
     "description": "Proyecto de análisis regional basado en encuestas internacionales para apoyar estudios sobre cohesión social en América Latina y el Caribe. Participé en la estructuración, depuración, validación y análisis de bases de datos, contribuyendo a la generación de indicadores comparables y a la preparación de insumos técnicos para publicaciones institucionales.",
-    "images": ["placeholder.jpeg", "astro-01.webp"],
+    "images": ["Panorama01.jpg", "Panorama02.jpg", "Panorama03.jpg", "Panorama04.jpg"],
     "tech": ["Stata", "Excel", "Python", "Power BI", "Análisis estadístico"],
     "platforms": ["web"],
     "link": "https://www.cepal.org/es/publicaciones/47667-panorama-la-cohesion-social-america-latina-caribe",
