@@ -2,7 +2,7 @@
   {
     "title": "Dashboard Comercial Retail 2024",
     "description": "Dashboard interactivo desarrollado en Power BI para analizar ventas, ingresos, ticket promedio, productos, clientes, regiones y métodos de pago. El proyecto permite monitorear el desempeño comercial mediante KPIs, visualizaciones ejecutivas y filtros dinámicos para apoyar la toma de decisiones.",
-    "images": ["astro-01.webp", "astro-02.jpeg"],
+    "images": ["Dashboard comercial 01.jpg", "Dashboard comercial 02.jpg"],
     "tech": ["Power BI", "DAX", "Power Query", "Modelado de datos"],
     "platforms": ["web"],
     "link": "/proyectos/dashboard-comercial-retail-2024/",
