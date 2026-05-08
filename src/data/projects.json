@@ -38,7 +38,7 @@
   {
     "title": "Automatización de Procesos y Reporting con VBA",
     "description": "Automatización de controles operacionales y procesos de revisión de datos en contextos financieros. El proyecto se enfocó en reducir tareas manuales, mejorar la consistencia de la información y acelerar la generación de reportes mediante macros, validaciones y flujos estandarizados en Excel.",
-    "images": ["placeholder.jpeg", "astro-01.webp"],
+    "images": ["vba01.png", "vba02.png"],
     "tech": ["Excel", "VBA", "Automatización", "Reporting", "Control operacional"],
     "platforms": ["web"],
     "link": "#",
