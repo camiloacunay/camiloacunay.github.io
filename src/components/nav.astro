@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import ThemeToggle from './theme-toggle.astro';
+
 interface NavItem {
   label: string;
   href: string;
@@ -29,9 +30,9 @@ const navItems: NavItem[] = [
     icon: `mdi:code-tags`,
   },
   // {
-  //   label: "Education",
-  //   href: "#contact",
-  //   icon: `mdi:message`,
+  //   label: "Educación",
+  //   href: "#education",
+  //   icon: `mdi:school`,
   // },
   {
     label: "Contacto",
@@ -40,6 +41,7 @@ const navItems: NavItem[] = [
   }
 ];
 ---
+
 <div id="theme-toggle-wrapper" class="fixed top-4 right-4 z-50 md:top-4 md:right-4 reveal-content" style="animation-delay: 700ms;">
   <ThemeToggle />
 </div>
@@ -47,7 +49,7 @@ const navItems: NavItem[] = [
 <div class="flex justify-center w-full">
   <nav
     id="main-nav"
-    class="fixed left-1/2 -translate-x-1/2 z-20 border-[1.2px] border-transparent transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
+    class="fixed left-1/2 -translate-x-1/2 z-20 border-[1.2px] border-transparent transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[92%]"
   >
     <div class="container mx-auto flex justify-center items-center p-3 reveal-content" style="animation-delay: 700ms;">
       <ul
@@ -61,12 +63,14 @@ const navItems: NavItem[] = [
                 class="flex flex-col items-center gap-1 text-accent transition-colors text-xs md:text-base relative group"
               >
                 <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 nav-indicator hidden md:block" />
+                
                 <span class="md:hidden flex items-center justify-center w-6 h-6">
                   <Icon 
                     name={item.icon} 
                     class="nav-icon w-full h-full text-accent/50 group-hover:text-accent transition-colors duration-300" 
                   />
                 </span>
+
                 <span class="hidden md:inline-block">{item.label}</span>
                 <span class="md:hidden text-xs">{item.label}</span>
               </a>
@@ -79,12 +83,13 @@ const navItems: NavItem[] = [
 </div>
 
 <style>
-    /* Reveal whole section when website loads */
+  /* Reveal whole section when website loads */
   .reveal-content {
     opacity: 0;
     transform: translateY(20px);
     animation: revealIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   }
+
   @keyframes revealIn {
     to {
       opacity: 1;
@@ -104,10 +109,9 @@ const navItems: NavItem[] = [
       width 0.4s ease;
   }
 
-   nav.scrolling {
+  nav.scrolling {
     background-color: color-mix(in srgb, var(--color-background), transparent 75%);
     border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
-    
     border-radius: 9999px;
     backdrop-filter: blur(10px);
   }
@@ -167,37 +171,28 @@ const navItems: NavItem[] = [
       width: 100% !important;
     }
 
-    /* Hiding bottom bar while scroling on mobile */
+    /* Hiding bottom bar while scrolling on mobile */
     #main-nav {
-      /* Force Hardware Acceleration (Fixes the white flash) */
       will-change: transform;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      /* Force it into its own GPU layer permanently */
       transform: translateZ(0);
       -webkit-transform: translateZ(0);
-      
-      /* Smooth transition */
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-
-      /* Ensure no default background is fighting the blur */
       background-clip: padding-box;
     }
 
     #main-nav.nav-hidden {
-      /* transform: translateY(110%) !important; */
       transform: translate3d(0, 110%, 0) !important;
-      
-      /* Optional: Turn off blur when hidden to save GPU cycles */
       backdrop-filter: blur(0px);
     }
 
-    /* Hiding theme-toggle while scroling on mobile */
+    /* Hiding theme-toggle while scrolling on mobile */
     #theme-toggle-wrapper {
       will-change: transform;
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    /* Slide the button UP out of view */
+
     #theme-toggle-wrapper.theme-hidden {
       transform: translateY(-150%) !important;
     }
@@ -226,7 +221,7 @@ const navItems: NavItem[] = [
 </style>
 
 <script>
-  //scroll morphing effect, changing width & border radius
+  // Scroll morphing effect, changing width & border radius
   const nav = document.getElementById("main-nav");
   const themeWrapper = document.getElementById("theme-toggle-wrapper");
 
@@ -243,8 +238,8 @@ const navItems: NavItem[] = [
       const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
       const easeProgress = 1 - Math.pow(1 - scrollProgress, 4);
 
-      const minWidth = 620;
-      const maxWidth = window.innerWidth * 0.8;
+      const minWidth = 760;
+      const maxWidth = window.innerWidth * 0.92;
       const currentWidth = maxWidth - (maxWidth - minWidth) * easeProgress;
 
       if (window.innerWidth >= 768) {
@@ -252,16 +247,17 @@ const navItems: NavItem[] = [
       }
     } else {
       nav?.classList.remove("scrolling");
-      // nav?.style.setProperty("width", "80%");
+
+      if (window.innerWidth >= 768) {
+        nav?.style.setProperty("width", "92%");
+      }
     }
+
     if (window.innerWidth < 768) {
-      // Small buffer (e.g. 10px) to prevent accidental hiding on "jittery" scrolls
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        // Scrolling Down - Hide Nav & theme-toggle
         nav?.classList.add("nav-hidden");
         themeWrapper?.classList.add("theme-hidden");
       } else {
-        // Scrolling Up - Show Nav & theme-toggle
         nav?.classList.remove("nav-hidden");
         themeWrapper?.classList.remove("theme-hidden");
       }
@@ -281,13 +277,15 @@ const navItems: NavItem[] = [
     { passive: true }
   );
 
-  //smooth scrolling to a linked section
+  // Smooth scrolling to a linked section
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
+
       const target = e.currentTarget as HTMLAnchorElement;
       const targetId = target.getAttribute("href")?.substring(1) || "";
       const targetElement = document.getElementById(targetId);
+
       if (targetElement) {
         targetElement.scrollIntoView({
           behavior: "smooth",
@@ -296,7 +294,7 @@ const navItems: NavItem[] = [
     });
   });
 
-  //highlight section by observing visible one on the screen by 50%
+  // Highlight section by observing visible one on the screen by 50%
   document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll("nav a[href^='#']");
@@ -306,8 +304,10 @@ const navItems: NavItem[] = [
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navLinks.forEach((link) => link.classList.remove("active"));
+
           const id = entry.target.getAttribute("id");
           const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+
           if (activeLink) {
             activeLink.classList.add("active");
           }
@@ -319,7 +319,7 @@ const navItems: NavItem[] = [
       observerCallback,
       observerOptions
     );
+
     sections.forEach((section) => observer.observe(section));
   });
 </script>
-
