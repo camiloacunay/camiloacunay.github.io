@@ -1,0 +1,374 @@
+---
+import "../../styles/global.css";
+
+const dashboardUrl =
+  "https://app.powerbi.com/view?r=eyJrIjoiMDA4NWYxNjEtYmQzMS00YjMwLTg5M2UtNTE5NjBiNzRmMWZiIiwidCI6ImUyMDIzYzZiLTI3NDgtNDM2ZS1hZGU3LTk0MjZhZDFlMDZjNSJ9";
+
+const kpis = [
+  {
+    title: "Presupuesto vigente",
+    description: "Monto actualizado disponible para las iniciativas de inversión analizadas."
+  },
+  {
+    title: "Ejecución acumulada",
+    description: "Gasto ejecutado acumulado durante el período presupuestario 2026."
+  },
+  {
+    title: "Avance presupuestario",
+    description: "Porcentaje de ejecución respecto del presupuesto vigente."
+  },
+  {
+    title: "Variación presupuestaria",
+    description: "Diferencia entre el presupuesto inicial y el presupuesto vigente."
+  }
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Obtención y revisión de datos",
+    description:
+      "Revisión de datos públicos asociados a la ejecución presupuestaria de iniciativas de inversión, identificando campos relevantes como año, mes, partida, capítulo, programa, subtítulo, presupuesto y ejecución acumulada."
+  },
+  {
+    number: "02",
+    title: "Limpieza y preparación",
+    description:
+      "Procesamiento de la información para estandarizar nombres, tipos de datos, unidades monetarias, categorías presupuestarias y campos necesarios para el análisis comparativo."
+  },
+  {
+    number: "03",
+    title: "Construcción de indicadores",
+    description:
+      "Creación de métricas de avance, variación presupuestaria, ejecución en millones de pesos y clasificación del nivel de avance presupuestario."
+  },
+  {
+    number: "04",
+    title: "Visualización en Power BI",
+    description:
+      "Diseño de un dashboard interactivo para explorar la ejecución por institución, partida, programa, subtítulo y nivel de avance, facilitando la lectura ejecutiva de los datos."
+  }
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Análisis de Ejecución Presupuestaria 2026 | Camilo Acuña</title>
+    <meta
+      name="description"
+      content="Caso de estudio de análisis de ejecución presupuestaria 2026 desarrollado con Python y Power BI para explorar presupuesto vigente, ejecución acumulada, avance y variación presupuestaria."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body class="min-h-screen bg-[#080D18] text-slate-100 antialiased">
+    <main class="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.20),transparent_34%),radial-gradient(circle_at_top_right,rgba(16,185,129,0.16),transparent_32%),linear-gradient(180deg,#080D18_0%,#0F172A_50%,#080D18_100%)]">
+      
+      <!-- Header -->
+      <header class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
+        <a
+          href="/"
+          class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-emerald-400/50 hover:text-white"
+        >
+          ← Volver al portafolio
+        </a>
+
+        <a
+          href="/CV_Camilo_A.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-emerald-400/50 hover:text-white"
+        >
+          Ver CV
+        </a>
+      </header>
+
+      <!-- Hero -->
+      <section class="mx-auto grid max-w-7xl items-center gap-12 px-6 py-12 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-20">
+        <div>
+          <p class="mb-5 inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-300">
+            Datos públicos · Power BI · Python · Análisis presupuestario
+          </p>
+
+          <h1 class="max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
+            Análisis de Ejecución Presupuestaria 2026
+          </h1>
+
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            Proyecto de análisis y visualización desarrollado para explorar la ejecución
+            presupuestaria de iniciativas de inversión durante 2026. El dashboard permite
+            revisar presupuesto vigente, ejecución acumulada, avance presupuestario,
+            variaciones respecto de la ley inicial y distribución por instituciones,
+            partidas, programas y subtítulos.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">Power BI</span>
+            <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">Python</span>
+            <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">Datos públicos</span>
+            <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">KPIs presupuestarios</span>
+            <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">Visualización ejecutiva</span>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a
+              href={dashboardUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-xl bg-emerald-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-300"
+            >
+              Ver dashboard en Power BI
+            </a>
+
+            <a
+              href="#proceso"
+              class="rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 transition hover:border-emerald-400/60 hover:text-white"
+            >
+              Ver proceso técnico
+            </a>
+          </div>
+        </div>
+
+        <!-- Dashboard preview -->
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-3 shadow-2xl shadow-black/40">
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-slate-950">
+            <iframe
+              title="Análisis de Ejecución Presupuestaria 2026"
+              src={dashboardUrl}
+              class="h-[360px] w-full md:h-[430px] lg:h-[470px]"
+              frameborder="0"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+
+          <p class="px-2 pt-3 text-sm text-slate-400">
+            Vista interactiva del dashboard publicado en Power BI.
+          </p>
+        </div>
+      </section>
+
+      <!-- Summary cards -->
+      <section class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="grid gap-4 md:grid-cols-4">
+          <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <p class="text-sm text-slate-400">Área</p>
+            <p class="mt-2 text-lg font-semibold text-white">Sector público</p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <p class="text-sm text-slate-400">Herramientas</p>
+            <p class="mt-2 text-lg font-semibold text-white">Python · Power BI</p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <p class="text-sm text-slate-400">Foco</p>
+            <p class="mt-2 text-lg font-semibold text-white">Ejecución presupuestaria</p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <p class="text-sm text-slate-400">Tipo</p>
+            <p class="mt-2 text-lg font-semibold text-white">Dashboard analítico</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Context -->
+      <section class="mx-auto grid max-w-7xl gap-8 px-6 py-12 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-emerald-300">Contexto</p>
+          <h2 class="mt-3 text-3xl font-bold text-white">Problema abordado</h2>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <p class="leading-8 text-slate-300">
+            Los datos presupuestarios suelen contener múltiples niveles administrativos y
+            contables, lo que dificulta una lectura rápida del avance real de ejecución.
+            El objetivo del proyecto fue transformar una base pública en una herramienta
+            visual que permitiera identificar montos asignados, ejecución acumulada,
+            diferencias presupuestarias y niveles de avance por distintas dimensiones de análisis.
+          </p>
+        </div>
+      </section>
+
+      <!-- KPIs -->
+      <section class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-widest text-emerald-300">Indicadores</p>
+              <h2 class="mt-3 text-3xl font-bold text-white">KPIs principales</h2>
+              <p class="mt-4 text-slate-400">
+                El dashboard resume los principales indicadores para evaluar el comportamiento presupuestario.
+              </p>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              {kpis.map((kpi) => (
+                <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-5">
+                  <p class="font-semibold text-white">{kpi.title}</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">{kpi.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical process -->
+      <section id="proceso" class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div class="mb-10">
+          <p class="text-sm font-semibold uppercase tracking-widest text-emerald-300">Proceso técnico</p>
+          <h2 class="mt-3 text-3xl font-bold text-white">De datos públicos a dashboard analítico</h2>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-4">
+          {processSteps.map((step) => (
+            <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-7 transition hover:border-emerald-400/40 hover:bg-white/[0.07]">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-400 text-sm font-bold text-slate-950">
+                {step.number}
+              </div>
+
+              <h3 class="mt-5 text-xl font-semibold text-white">{step.title}</h3>
+
+              <p class="mt-3 leading-7 text-slate-300">
+                {step.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Analysis dimensions -->
+      <section class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+            <p class="text-sm font-semibold uppercase tracking-widest text-emerald-300">
+              Análisis
+            </p>
+
+            <h2 class="mt-3 text-3xl font-bold text-white">
+              Dimensiones exploradas
+            </h2>
+
+            <ul class="mt-6 space-y-3 text-slate-300">
+              <li>• Presupuesto inicial, presupuesto vigente y ejecución acumulada.</li>
+              <li>• Avance presupuestario por institución, partida y programa.</li>
+              <li>• Comparación de ejecución según subtítulo presupuestario.</li>
+              <li>• Clasificación del avance: sin presupuesto, bajo avance, avance esperado y alto avance.</li>
+              <li>• Variación entre ley inicial y presupuesto vigente.</li>
+              <li>• Identificación de entidades o programas con mayor nivel de ejecución.</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+            <p class="text-sm font-semibold uppercase tracking-widest text-emerald-300">
+              Resultado
+            </p>
+
+            <h2 class="mt-3 text-3xl font-bold text-white">
+              Valor del proyecto
+            </h2>
+
+            <p class="mt-6 leading-8 text-slate-300">
+              El tablero permite monitorear el avance de la ejecución presupuestaria de forma
+              visual, detectar diferencias entre presupuesto inicial y vigente, identificar
+              unidades con bajo o alto nivel de ejecución y facilitar una lectura ejecutiva
+              de información pública compleja.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills applied -->
+      <section class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <p class="text-sm font-semibold uppercase tracking-widest text-emerald-300">
+            Competencias aplicadas
+          </p>
+
+          <h2 class="mt-3 text-3xl font-bold text-white">
+            Qué demuestra este proyecto
+          </h2>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div class="rounded-2xl bg-slate-950/60 p-5">
+              <p class="font-semibold text-white">Análisis de datos públicos</p>
+              <p class="mt-2 text-sm leading-6 text-slate-400">
+                Uso de información pública para construir indicadores analíticos y visualizaciones ejecutivas.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-slate-950/60 p-5">
+              <p class="font-semibold text-white">Limpieza y transformación</p>
+              <p class="mt-2 text-sm leading-6 text-slate-400">
+                Preparación de campos, nombres, montos y categorías para facilitar el análisis.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-slate-950/60 p-5">
+              <p class="font-semibold text-white">Diseño de KPIs</p>
+              <p class="mt-2 text-sm leading-6 text-slate-400">
+                Creación de métricas de avance, ejecución acumulada y variación presupuestaria.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-slate-950/60 p-5">
+              <p class="font-semibold text-white">Power BI</p>
+              <p class="mt-2 text-sm leading-6 text-slate-400">
+                Construcción de dashboard interactivo con segmentadores, visualizaciones y navegación ejecutiva.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-slate-950/60 p-5">
+              <p class="font-semibold text-white">Comunicación visual</p>
+              <p class="mt-2 text-sm leading-6 text-slate-400">
+                Presentación de información presupuestaria compleja en una estructura clara y accionable.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-slate-950/60 p-5">
+              <p class="font-semibold text-white">Trazabilidad analítica</p>
+              <p class="mt-2 text-sm leading-6 text-slate-400">
+                Organización del análisis para conectar datos originales, transformaciones e indicadores finales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+        <div class="rounded-3xl border border-emerald-400/20 bg-emerald-400/10 p-8 text-center shadow-2xl shadow-emerald-950/20">
+          <h2 class="text-3xl font-bold text-white">
+            Explora el dashboard interactivo
+          </h2>
+
+          <p class="mx-auto mt-4 max-w-2xl text-slate-300">
+            Puedes revisar la versión publicada en Power BI para interactuar con filtros,
+            visualizaciones e indicadores del proyecto.
+          </p>
+
+          <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              href={dashboardUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-xl bg-emerald-400 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-300"
+            >
+              Abrir dashboard en Power BI
+            </a>
+
+            <a
+              href="/"
+              class="rounded-xl border border-white/10 bg-white/5 px-6 py-3 font-semibold text-slate-200 transition hover:border-emerald-400/60 hover:text-white"
+            >
+              Volver al portafolio
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
