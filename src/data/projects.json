@@ -20,7 +20,7 @@
   {
     "title": "Cohesión Social en América Latina y el Caribe - CEPAL",
     "description": "Proyecto de análisis regional basado en encuestas internacionales para apoyar estudios sobre cohesión social en América Latina y el Caribe. Participé en la estructuración, depuración, validación y análisis de bases de datos, contribuyendo a la generación de indicadores comparables y a la preparación de insumos técnicos para publicaciones institucionales.",
-    "images": ["Panorama01.jpg", "Panorama02.jpg", "Panorama03.jpg", "Panorama04.jpg"],
+    "images": ["Panorama001.jpg", "Panorama02.jpg", "Panorama03.jpg", "Panorama04.jpg"],
     "tech": ["Stata", "Excel", "Python", "Power BI", "Análisis estadístico"],
     "platforms": ["web"],
     "link": "https://www.cepal.org/es/publicaciones/47667-panorama-la-cohesion-social-america-latina-caribe",
@@ -29,7 +29,7 @@
   {
     "title": "Metodología de Medición de la Cohesión Social - CEPAL",
     "description": "Publicación metodológica de CEPAL en la que participé como coautor, aportando en el desarrollo, análisis y validación de insumos técnicos para la medición de cohesión social en América Latina y el Caribe. El trabajo combinó análisis estadístico, tratamiento de datos regionales y construcción de criterios metodológicos para estudios comparables.",
-    "images": ["placeholder.jpeg", "astro-02.jpeg"],
+    "images": ["metodologia01.jpg", "metodologia02.jpg", "metodologia03.jpg"],
     "tech": ["Análisis estadístico", "Stata", "Excel", "Metodología", "Datos regionales"],
     "platforms": ["web"],
     "link": "https://www.cepal.org/es/publicaciones/47731-metodologia-medicion-la-cohesion-social-america-latina-caribe-aprendizajes",
