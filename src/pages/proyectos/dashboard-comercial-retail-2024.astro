@@ -13,175 +13,260 @@ const dashboardUrl = "https://app.powerbi.com/view?r=eyJrIjoiY2FmYTExMjUtZGVjMi0
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
 
-  <body class="bg-slate-950 text-slate-100">
-    <main class="mx-auto max-w-5xl px-6 py-12">
-      <a
-        href="/"
-        class="text-sm text-slate-400 hover:text-white"
-      >
-        ← Volver al portafolio
-      </a>
+  <body class="min-h-screen bg-[#070B14] text-slate-100">
+    <main>
+      <section class="relative overflow-hidden border-b border-white/10">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_35%),radial-gradient(circle_at_top_right,rgba(99,102,241,0.16),transparent_35%)]"></div>
 
-      <section class="mt-10">
-        <p class="text-sm font-semibold uppercase tracking-widest text-cyan-400">
-          Business Intelligence / Power BI
-        </p>
+        <div class="relative mx-auto max-w-7xl px-6 py-8 lg:px-8">
+          <nav class="flex items-center justify-between">
+            <a href="/" class="text-sm font-medium text-slate-400 transition hover:text-white">
+              ← Volver al portafolio
+            </a>
 
-        <h1 class="mt-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
-          Dashboard Comercial Retail 2024
-        </h1>
+            <a
+              href="/CV_Camilo_A.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-cyan-400/60 hover:text-white"
+            >
+              Ver CV
+            </a>
+          </nav>
 
-        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-          Proyecto de análisis y visualización desarrollado en Power BI para monitorear
-          el desempeño comercial de una operación retail. El dashboard permite analizar
-          ingresos, ventas, ticket promedio, unidades vendidas, clientes, categorías,
-          regiones, productos y métodos de pago mediante indicadores ejecutivos y filtros
-          dinámicos.
-        </p>
+          <div class="grid items-center gap-12 py-16 lg:grid-cols-[1fr_0.95fr] lg:py-24">
+            <div>
+              <p class="mb-4 inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-300">
+                Business Intelligence · Power BI · Data Analytics
+              </p>
 
-        <div class="mt-8 flex flex-wrap gap-3">
-          <span class="rounded-full bg-slate-800 px-4 py-2 text-sm text-slate-200">Power BI</span>
-          <span class="rounded-full bg-slate-800 px-4 py-2 text-sm text-slate-200">DAX</span>
-          <span class="rounded-full bg-slate-800 px-4 py-2 text-sm text-slate-200">Power Query</span>
-          <span class="rounded-full bg-slate-800 px-4 py-2 text-sm text-slate-200">Modelado de datos</span>
-          <span class="rounded-full bg-slate-800 px-4 py-2 text-sm text-slate-200">KPIs</span>
-        </div>
+              <h1 class="max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
+                Dashboard Comercial Retail 2024
+              </h1>
 
-        <div class="mt-10 flex flex-wrap gap-4">
-          <a
-            href={dashboardUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="rounded-xl bg-cyan-500 px-5 py-3 font-semibold text-slate-950 transition hover:bg-cyan-400"
-          >
-            Ver dashboard en Power BI
-          </a>
+              <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+                Caso de estudio de un dashboard interactivo desarrollado en Power BI para analizar desempeño comercial,
+                ingresos, ventas, ticket promedio, productos, clientes, regiones y métodos de pago.
+              </p>
 
-          <a
-            href="/CV_Camilo_A.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="rounded-xl border border-slate-700 px-5 py-3 font-semibold text-slate-200 transition hover:border-slate-400 hover:text-white"
-          >
-            Ver CV
-          </a>
-        </div>
-      </section>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">Power BI</span>
+                <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">DAX</span>
+                <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">Power Query</span>
+                <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">Modelado de datos</span>
+                <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">KPIs</span>
+              </div>
 
-      <section class="mt-16 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-          <p class="text-sm text-slate-400">Objetivo</p>
-          <h2 class="mt-2 text-xl font-semibold text-white">Monitoreo comercial</h2>
-          <p class="mt-3 text-slate-300">
-            Consolidar indicadores clave para evaluar desempeño de ventas, productos,
-            regiones y clientes.
-          </p>
-        </div>
+              <div class="mt-10 flex flex-wrap gap-4">
+                <a
+                  href={dashboardUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="rounded-xl bg-cyan-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300"
+                >
+                  Ver dashboard en Power BI
+                </a>
 
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-          <p class="text-sm text-slate-400">Enfoque</p>
-          <h2 class="mt-2 text-xl font-semibold text-white">Análisis ejecutivo</h2>
-          <p class="mt-3 text-slate-300">
-            Diseñar visualizaciones claras para facilitar lectura rápida de tendencias,
-            composición y concentración comercial.
-          </p>
-        </div>
+                <a
+                  href="#proceso"
+                  class="rounded-xl border border-white/10 px-5 py-3 font-semibold text-slate-200 transition hover:border-cyan-400/60 hover:text-white"
+                >
+                  Ver proceso técnico
+                </a>
+              </div>
+            </div>
 
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-          <p class="text-sm text-slate-400">Resultado</p>
-          <h2 class="mt-2 text-xl font-semibold text-white">Dashboard interactivo</h2>
-          <p class="mt-3 text-slate-300">
-            Tablero con KPIs, filtros dinámicos y visualizaciones orientadas a la toma
-            de decisiones.
-          </p>
+            <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-3 shadow-2xl shadow-black/40">
+              <div class="overflow-hidden rounded-2xl border border-white/10 bg-slate-900">
+                <img
+                  src="/dashboard-comercial-retail-2024.png"
+                  alt="Vista previa del dashboard comercial retail 2024"
+                  class="h-auto w-full object-cover"
+                />
+              </div>
+              <p class="px-2 pt-3 text-sm text-slate-400">
+                Vista previa del tablero desarrollado en Power BI.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="mt-16">
-        <h2 class="text-2xl font-bold text-white">Problema abordado</h2>
-        <p class="mt-4 leading-8 text-slate-300">
-          En una operación comercial, los datos de ventas pueden estar disponibles pero no
-          necesariamente organizados para la toma de decisiones. El objetivo del proyecto fue
-          transformar una base de ventas en un tablero ejecutivo que permitiera responder
-          preguntas clave: cuánto se vendió, qué productos explican los ingresos, qué regiones
-          concentran la actividad, qué métodos de pago predominan y cómo evoluciona el desempeño
-          mensual.
-        </p>
+      <section class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div class="grid gap-4 md:grid-cols-5">
+          <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <p class="text-sm text-slate-400">Área</p>
+            <p class="mt-2 text-lg font-semibold text-white">Retail</p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <p class="text-sm text-slate-400">Herramienta</p>
+            <p class="mt-2 text-lg font-semibold text-white">Power BI</p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <p class="text-sm text-slate-400">Foco</p>
+            <p class="mt-2 text-lg font-semibold text-white">Ventas</p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <p class="text-sm text-slate-400">Tipo</p>
+            <p class="mt-2 text-lg font-semibold text-white">Dashboard</p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+            <p class="text-sm text-slate-400">Objetivo</p>
+            <p class="mt-2 text-lg font-semibold text-white">Decisión</p>
+          </div>
+        </div>
       </section>
 
-      <section class="mt-12">
-        <h2 class="text-2xl font-bold text-white">KPIs principales</h2>
+      <section class="mx-auto grid max-w-7xl gap-8 px-6 py-8 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-cyan-300">Contexto</p>
+          <h2 class="mt-3 text-3xl font-bold text-white">Problema abordado</h2>
+        </div>
 
-        <div class="mt-6 grid gap-4 md:grid-cols-2">
-          <ul class="space-y-3 text-slate-300">
-            <li>• Ingresos totales</li>
-            <li>• Número de ventas</li>
-            <li>• Ticket promedio</li>
-            <li>• Unidades vendidas</li>
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <p class="leading-8 text-slate-300">
+            En una operación comercial, los datos de ventas pueden existir en distintas tablas o archivos, pero no siempre
+            están organizados para entregar una lectura clara del negocio. El objetivo de este proyecto fue transformar
+            una base de ventas en un dashboard ejecutivo que permitiera monitorear ingresos, ventas, ticket promedio,
+            unidades vendidas, clientes, categorías, productos, regiones y métodos de pago.
+          </p>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-widest text-cyan-300">Indicadores</p>
+              <h2 class="mt-3 text-3xl font-bold text-white">KPIs principales</h2>
+              <p class="mt-4 text-slate-400">
+                El dashboard se diseñó para entregar una vista ejecutiva rápida del desempeño comercial.
+              </p>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl bg-slate-950/60 p-5">
+                <p class="font-semibold text-white">Ingresos totales</p>
+                <p class="mt-2 text-sm text-slate-400">Seguimiento del monto total vendido.</p>
+              </div>
+
+              <div class="rounded-2xl bg-slate-950/60 p-5">
+                <p class="font-semibold text-white">Número de ventas</p>
+                <p class="mt-2 text-sm text-slate-400">Volumen de transacciones registradas.</p>
+              </div>
+
+              <div class="rounded-2xl bg-slate-950/60 p-5">
+                <p class="font-semibold text-white">Ticket promedio</p>
+                <p class="mt-2 text-sm text-slate-400">Valor promedio por venta realizada.</p>
+              </div>
+
+              <div class="rounded-2xl bg-slate-950/60 p-5">
+                <p class="font-semibold text-white">Clientes únicos</p>
+                <p class="mt-2 text-sm text-slate-400">Cantidad de clientes identificados en el período.</p>
+              </div>
+
+              <div class="rounded-2xl bg-slate-950/60 p-5">
+                <p class="font-semibold text-white">Top productos</p>
+                <p class="mt-2 text-sm text-slate-400">Ranking de productos con mayor aporte comercial.</p>
+              </div>
+
+              <div class="rounded-2xl bg-slate-950/60 p-5">
+                <p class="font-semibold text-white">Métodos de pago</p>
+                <p class="mt-2 text-sm text-slate-400">Distribución de ventas según medio de pago.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="proceso" class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div class="mb-10">
+          <p class="text-sm font-semibold uppercase tracking-widest text-cyan-300">Proceso técnico</p>
+          <h2 class="mt-3 text-3xl font-bold text-white">De datos brutos a dashboard ejecutivo</h2>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-3">
+          <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-7">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400 text-lg font-bold text-slate-950">
+              1
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">Preparación de datos</h3>
+            <p class="mt-3 leading-7 text-slate-300">
+              Revisión de campos, tipos de datos, categorías, fechas, productos, clientes y regiones para asegurar una
+              estructura consistente antes del modelado.
+            </p>
+          </article>
+
+          <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-7">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400 text-lg font-bold text-slate-950">
+              2
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">Modelado y medidas</h3>
+            <p class="mt-3 leading-7 text-slate-300">
+              Construcción del modelo en Power BI, creación de medidas DAX y definición de KPIs comerciales para
+              ingresos, ventas, ticket promedio, unidades y clientes.
+            </p>
+          </article>
+
+          <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-7">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400 text-lg font-bold text-slate-950">
+              3
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">Visualización ejecutiva</h3>
+            <p class="mt-3 leading-7 text-slate-300">
+              Diseño de una vista clara con KPIs superiores, evolución mensual, ranking de productos, análisis por
+              categoría, filtros dinámicos y gráficos de composición.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="mx-auto grid max-w-7xl gap-8 px-6 py-8 lg:grid-cols-2 lg:px-8">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <p class="text-sm font-semibold uppercase tracking-widest text-cyan-300">Resultado</p>
+          <h2 class="mt-3 text-3xl font-bold text-white">Valor del proyecto</h2>
+          <p class="mt-5 leading-8 text-slate-300">
+            El tablero permite detectar patrones de venta, identificar categorías relevantes, priorizar productos de alto
+            impacto y facilitar una lectura ejecutiva del negocio. El resultado es una herramienta visual y accionable
+            para apoyar decisiones comerciales.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <p class="text-sm font-semibold uppercase tracking-widest text-cyan-300">Aprendizajes</p>
+          <h2 class="mt-3 text-3xl font-bold text-white">Competencias aplicadas</h2>
+          <ul class="mt-5 space-y-3 text-slate-300">
+            <li>• Diseño de KPIs orientados a negocio.</li>
+            <li>• Modelado y visualización en Power BI.</li>
+            <li>• Uso de DAX para medidas comerciales.</li>
+            <li>• Estructuración de datos para análisis.</li>
+            <li>• Comunicación ejecutiva mediante dashboards.</li>
           </ul>
-
-          <ul class="space-y-3 text-slate-300">
-            <li>• Clientes únicos</li>
-            <li>• Ingresos por categoría</li>
-            <li>• Top productos por ventas</li>
-            <li>• Distribución por método de pago</li>
-          </ul>
         </div>
       </section>
 
-      <section class="mt-12">
-        <h2 class="text-2xl font-bold text-white">Proceso técnico</h2>
+      <section class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+        <div class="rounded-3xl border border-cyan-400/20 bg-cyan-400/10 p-8 text-center">
+          <h2 class="text-3xl font-bold text-white">Explora el dashboard interactivo</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-slate-300">
+            Puedes revisar la versión publicada en Power BI para interactuar con filtros, visualizaciones y métricas del proyecto.
+          </p>
 
-        <div class="mt-6 space-y-6">
-          <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-            <h3 class="font-semibold text-white">1. Preparación de datos</h3>
-            <p class="mt-2 text-slate-300">
-              Revisión de campos, tipos de datos, categorías, fechas, ventas, clientes,
-              productos y regiones. El objetivo fue asegurar que la información estuviera
-              correctamente estructurada para el análisis.
-            </p>
-          </div>
-
-          <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-            <h3 class="font-semibold text-white">2. Modelado en Power BI</h3>
-            <p class="mt-2 text-slate-300">
-              Construcción del modelo de datos, creación de medidas DAX y definición de
-              indicadores comerciales para analizar ingresos, ventas, ticket promedio,
-              unidades y clientes.
-            </p>
-          </div>
-
-          <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-            <h3 class="font-semibold text-white">3. Diseño del dashboard</h3>
-            <p class="mt-2 text-slate-300">
-              Diseño de una vista ejecutiva con KPIs superiores, gráficos de evolución,
-              ranking de productos, análisis por categoría, filtros por fecha, región y
-              categoría, además de visualizaciones para métodos de pago y estado de ventas.
-            </p>
+          <div class="mt-8">
+            <a
+              href={dashboardUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex rounded-xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300"
+            >
+              Abrir dashboard en Power BI
+            </a>
           </div>
         </div>
-      </section>
-
-      <section class="mt-12">
-        <h2 class="text-2xl font-bold text-white">Valor del proyecto</h2>
-        <p class="mt-4 leading-8 text-slate-300">
-          Este proyecto demuestra capacidad para transformar datos comerciales en una
-          herramienta de análisis clara, visual y accionable. El tablero permite detectar
-          patrones de ventas, comparar categorías, priorizar productos relevantes y facilitar
-          una lectura ejecutiva del desempeño del negocio.
-        </p>
-      </section>
-
-      <section class="mt-12 rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-        <h2 class="text-2xl font-bold text-white">Aprendizajes aplicados</h2>
-
-        <ul class="mt-4 space-y-3 text-slate-300">
-          <li>• Diseño de KPIs orientados a negocio.</li>
-          <li>• Construcción de visualizaciones ejecutivas en Power BI.</li>
-          <li>• Uso de DAX para medidas comerciales.</li>
-          <li>• Preparación y estructuración de datos para análisis.</li>
-          <li>• Comunicación de información compleja en formato claro y accionable.</li>
-        </ul>
       </section>
     </main>
   </body>
