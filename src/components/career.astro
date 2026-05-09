@@ -16,17 +16,17 @@ import CareerCard from './career-card.astro';
     </div>
 
     <div class="relative">
-      {/* Vertical Line*/}
-      <div class="absolute left-2 md:left-1/2 md:-translate-x-1/2 top-5 bottom-0 w-0.5 bg-linear-to-b from-accent via-white/10 to-transparent"></div>
+      {/* Vertical Line */}
+      <div class="absolute left-2 md:left-1/2 md:-translate-x-1/2 top-5 bottom-0 w-0.5 bg-linear-to-b from-accent/80 via-accent/60 to-accent/40"></div>
 
       {/* Mobile View */}
       <div class="md:hidden space-y-8">
         {careerData.map((item, index) => (
           <div class="scroll-stat relative pl-6">
-            {/* Dot for mobile view*/}
+            {/* Dot for mobile view */}
             <div class="absolute left-0 top-1 z-10">
-              <div class={`w-4 h-4 rounded-full border-4 border-[#0a0a0a] 
-                          ${index === 0 ? 'bg-accent shadow-[0_0_15px_var(--color-accent)] animate-pulse' : 'bg-accent/50'}`}>
+              <div class={`w-4 h-4 rounded-full border-4 border-background 
+                          ${index === 0 ? 'bg-accent shadow-[0_0_15px_var(--color-accent)] animate-pulse' : 'bg-accent/60'}`}>
               </div>
             </div>
             
@@ -41,19 +41,19 @@ import CareerCard from './career-card.astro';
           <div class="scroll-stat relative grid grid-cols-2">
             {/* Center Dot */}
             <div class="absolute left-1/2 -translate-x-1/2 top-1 z-10">
-              <div class={`w-4 h-4 rounded-full border-4 border-[#0a0a0a] 
-                          ${index === 0 ? 'bg-accent shadow-[0_0_15px_var(--color-accent)] animate-pulse' : 'bg-accent/50'}`}>
+              <div class={`w-4 h-4 rounded-full border-4 border-background 
+                          ${index === 0 ? 'bg-accent shadow-[0_0_15px_var(--color-accent)] animate-pulse' : 'bg-accent/60'}`}>
               </div>
             </div>
 
-            {/* Left Side (even items) */}
+            {/* Left Side - even items */}
             <div class="md:px-6 md:py-0">
               {index % 2 === 0 ? (
                 <CareerCard item={item} variant="desktop-left" />
               ) : <div class="h-full pointer-events-none"></div>}
             </div>
 
-            {/* Right Side (odd items) */}
+            {/* Right Side - odd items */}
             <div class="md:px-6 md:py-0">
               {index % 2 !== 0 ? (
                 <CareerCard item={item} variant="desktop-right" />
@@ -88,7 +88,7 @@ import CareerCard from './career-card.astro';
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Revealed state while scrolling*/
+  /* Revealed state while scrolling */
   .scroll-stat.reveal {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -102,26 +102,23 @@ import CareerCard from './career-card.astro';
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Add a slight delay based on the card's position to create a wave effect
           const index = Array.from(cards).indexOf(entry.target);
+
           setTimeout(() => {
             entry.target.classList.add('reveal');
-          }, (index % 3) * 150); // Delay resets every row for a clean staggered look
+          }, (index % 3) * 150);
           
           observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.15, // Trigger when 15% of the card is visible
-      rootMargin: '0px 0px -10px 0px' // Trigger slightly before it hits the viewport
+      threshold: 0.15,
+      rootMargin: '0px 0px -10px 0px'
     });
 
     cards.forEach(card => observer.observe(card));
   }
 
-  // Runs on initial load
   revealCards();
-  
-  // Necessary for Astro View Transitions if you use them
   document.addEventListener('astro:after-swap', revealCards);
 </script>
