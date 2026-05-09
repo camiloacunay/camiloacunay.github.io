@@ -17,7 +17,10 @@ import CareerCard from './career-card.astro';
 
     <div class="relative">
       {/* Vertical Line */}
-      <div class="absolute left-2 md:left-1/2 md:-translate-x-1/2 top-5 bottom-0 w-0.5 bg-linear-to-b from-accent/80 via-accent/60 to-accent/40"></div>
+      <div
+        class="absolute left-2 md:left-1/2 md:-translate-x-1/2 top-5 bottom-0 w-0.5"
+        style="background: linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 85%, transparent) 0%, color-mix(in srgb, var(--color-accent) 65%, transparent) 70%, transparent 100%);"
+      ></div>
 
       {/* Mobile View */}
       <div class="md:hidden space-y-8">
