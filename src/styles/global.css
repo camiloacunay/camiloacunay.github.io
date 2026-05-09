@@ -3,12 +3,12 @@
 @import '@fontsource-variable/inter';
 
 @theme {
-  /* Base Colors - Paleta profesional: navy + violeta + gris azulado */
-  --color-background: #0B1020;
-  --color-accent: #8B5CF6;
-  --color-maintext: #FFFFFF;
-  --color-subtext: #CBD5E1;
-  --color-textrain: #64748B;
+  /* Paleta base: light profesional, azul/corporativa */
+  --color-background: #F8FAFC;
+  --color-accent: #0284C7;
+  --color-maintext: #0F172A;
+  --color-subtext: #475569;
+  --color-textrain: #94A3B8;
 
   /* Fonts */
   --font-heading: "Space Grotesk Variable", sans-serif;
@@ -38,23 +38,23 @@
 }
 
 @layer base {
-  /* Default Theme - Dark */
-  :root,
-  [data-theme="default-dark"] {
-    --color-background: #0B1020;
-    --color-accent: #8B5CF6;
-    --color-maintext: #FFFFFF;
-    --color-subtext: #CBD5E1;
-    --color-textrain: #64748B;
-  }
-
   /* Default Theme - Light */
+  :root,
   [data-theme="default-light"] {
     --color-background: #F8FAFC;
-    --color-accent: #7C3AED;
-    --color-maintext: #0B1020;
+    --color-accent: #0284C7;
+    --color-maintext: #0F172A;
     --color-subtext: #475569;
     --color-textrain: #94A3B8;
+  }
+
+  /* Default Theme - Dark */
+  [data-theme="default-dark"] {
+    --color-background: #07111F;
+    --color-accent: #38BDF8;
+    --color-maintext: #F8FAFC;
+    --color-subtext: #CBD5E1;
+    --color-textrain: #64748B;
   }
 
   /* Strategic Architect - Dark */
@@ -77,9 +77,9 @@
 
   /* Modern Innovator - Dark */
   [data-theme="innovator-dark"] {
-    --color-background: #0B1020;
+    --color-background: #07111F;
     --color-accent: #10B981;
-    --color-maintext: #FFFFFF;
+    --color-maintext: #F8FAFC;
     --color-subtext: #CBD5E1;
     --color-textrain: #64748B;
   }
@@ -90,7 +90,7 @@
     --color-accent: #059669;
     --color-maintext: #064E3B;
     --color-subtext: #475569;
-    --color-textrain: #7fbc9e;
+    --color-textrain: #7FBC9E;
   }
 
   /* Executive Minimalist - Dark */
@@ -111,7 +111,6 @@
     --color-textrain: #D6A46A;
   }
 
-  /* Core Element Styles */
   *::selection {
     @apply bg-accent text-background;
   }
@@ -119,10 +118,10 @@
   body {
     @apply font-body antialiased text-maintext;
     background: linear-gradient(
-      135deg,    
-      color-mix(in srgb, var(--color-background), black 16%) 0%,
+      135deg,
+      color-mix(in srgb, var(--color-background), black 4%) 0%,
       var(--color-background) 50%,
-      color-mix(in srgb, var(--color-background), white 16%) 100%
+      color-mix(in srgb, var(--color-background), white 8%) 100%
     );
     background-attachment: fixed;
     min-height: 100vh;
@@ -139,13 +138,13 @@
     @apply absolute font-heading font-extralight select-none pointer-events-none leading-none;
     animation: fall linear forwards;
   }
-  
+
   .launching {
     animation: launch 0.5s ease-in forwards;
   }
 }
 
-/* Custom Scrollbar for a cleaner look */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
