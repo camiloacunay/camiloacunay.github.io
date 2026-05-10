@@ -57,6 +57,16 @@ const previewImage = 'https://camiloacunay.github.io/web.jpg';
     <meta name="twitter:image" content={previewImage} />
     <meta name="twitter:image:alt" content="Portafolio profesional de Camilo Acuña Yáñez, Analista de Datos y BI" />
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRC8SV1LWZ"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MRC8SV1LWZ');
+    </script>
+
     <!-- THEME TOGGLE SCRIPT -->
     <script is:inline define:vars={{ baseTheme, defaultTheme }}>
       const savedTheme = localStorage.getItem('theme');
@@ -68,7 +78,6 @@ const previewImage = 'https://camiloacunay.github.io/web.jpg';
         localStorage.setItem('theme', defaultTheme);
       }
     </script>
-
   </head>
 
   <body class="bg-container relative min-h-screen overflow-x-hidden antialiased">
