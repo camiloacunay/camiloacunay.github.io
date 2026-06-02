@@ -156,15 +156,32 @@ const techStack = [
 ---
 
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Predicción Probabilística de Consumo Energético | Camilo Acuña</title>
-    <meta
-      name="description"
-      content="Proyecto de forecasting probabilístico de consumo energético desarrollado con Python, series temporales, simulaciones Monte Carlo y visualización interactiva en Plotly."
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
+
+  <!-- Open Graph / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDescription} />
+  <meta property="og:image" content={previewImage} />
+  <meta property="og:image:secure_url" content={previewImage} />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:site_name" content="Camilo Acuña | Portafolio" />
+  <meta property="og:locale" content="es_CL" />
+
+  <!-- Twitter / generic social preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={pageDescription} />
+  <meta name="twitter:image" content={previewImage} />
+
+  <link rel="canonical" href={pageUrl} />
+</head>
 
   <body class="min-h-screen bg-[#080D18] text-slate-100 antialiased">
     <main class="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.20),transparent_34%),radial-gradient(circle_at_top_right,rgba(16,185,129,0.16),transparent_32%),linear-gradient(180deg,#080D18_0%,#0F172A_50%,#080D18_100%)]">
