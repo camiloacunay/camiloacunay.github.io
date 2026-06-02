@@ -1,14 +1,5 @@
 [
   {
-    "title": "Predicción Probabilística de Consumo Energético",
-    "description": "Proyecto de forecasting aplicado al consumo energético usando Python, series temporales, simulaciones Monte Carlo e intervalos de predicción. El proyecto permite visualizar escenarios futuros, cuantificar incertidumbre y comparar el pronóstico contra valores reales observados mediante un gráfico interactivo en Plotly.",
-    "images": ["/proyectos/prediccion-consumo-energia/preview_prediccion_consumo_energia.jpg"],
-    "tech": ["Python", "Pandas", "Scikit-learn", "Plotly", "Series temporales", "Monte Carlo"],
-    "platforms": ["web", "GitHub"],
-    "link": "/proyectos/prediccion-consumo-energia/",
-    "category": "Machine Learning"
-  },
-  {
     "title": "Dashboard Comercial Retail 2024",
     "description": "Dashboard interactivo desarrollado en Power BI para analizar ventas, ingresos, ticket promedio, productos, clientes, regiones y métodos de pago. El proyecto permite monitorear el desempeño comercial mediante KPIs, visualizaciones ejecutivas y filtros dinámicos para apoyar la toma de decisiones.",
     "images": ["Dashboard comercial 01.jpg", "Dashboard comercial 02.jpg", "Dashboard comercial 03.jpg"],
