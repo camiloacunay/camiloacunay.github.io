@@ -1,181 +1,725 @@
 ---
-const title = "Dashboard NLP de Reseñas Hoteleras en Europa";
-const description =
-  "Análisis interactivo de más de 500 mil reseñas hoteleras mediante procesamiento de lenguaje natural, Sankey, wordcloud y redes semánticas.";
+import "../../styles/global.css";
 
-const dashboardUrl = "https://camiloacunay.github.io/nlp-hotel-reviews-dashboard/";
-const githubUrl = "https://github.com/camiloacunay/nlp-hotel-reviews-dashboard";
+const pageUrl =
+  "https://camiloacunay.github.io/proyectos/nlp-hotel-reviews-dashboard/";
+
+const previewImage =
+  "https://camiloacunay.github.io/images/proyectos/preview_dashboard.png";
+
+const pageTitle =
+  "Dashboard NLP de Reseñas Hoteleras en Europa | Camilo Acuña";
+
+const pageDescription =
+  "Proyecto de análisis de texto aplicado a más de 500 mil reseñas hoteleras mediante NLP, análisis de sentimiento, Sankey, wordcloud y redes semánticas.";
+
+const dashboardUrl =
+  "https://camiloacunay.github.io/nlp-hotel-reviews-dashboard/";
+
+const githubUrl =
+  "https://github.com/camiloacunay/nlp-hotel-reviews-dashboard";
+
+const notebookUrl =
+  "https://github.com/camiloacunay/nlp-hotel-reviews-dashboard/blob/main/notebooks/nlp_hotel_reviews_dashboard.ipynb";
+
+const htmlOutputUrl =
+  "https://github.com/camiloacunay/nlp-hotel-reviews-dashboard/blob/main/docs/index.html";
+
+const dataSourceUrl =
+  "https://www.kaggle.com/datasets/jiashenliu/515k-hotel-reviews-data-in-europe";
+
+const imageGallery = [
+  {
+    title: "Vista general del dashboard",
+    src: "/images/proyectos/preview_dashboard.png",
+    description:
+      "Resumen ejecutivo con KPIs principales, visualizaciones interactivas y diseño HTML publicado en GitHub Pages."
+  },
+  {
+    title: "Sankey filtrable",
+    src: "/images/proyectos/preview_sankey.png",
+    description:
+      "Flujo entre calificación, sentimiento textual y frase dominante, con filtros por sentimiento, término y flujo mínimo."
+  },
+  {
+    title: "Wordcloud",
+    src: "/images/proyectos/preview_wordcloud.png",
+    description:
+      "Visualización de las palabras y frases más frecuentes dentro del corpus de reseñas hoteleras."
+  },
+  {
+    title: "Red semántica",
+    src: "/images/proyectos/preview_network.png",
+    description:
+      "Red de coocurrencias entre términos frecuentes, donde los colores representan comunidades temáticas."
+  }
+];
+
+const kpis = [
+  {
+    title: "+500 mil",
+    description: "Reseñas hoteleras disponibles en la base original utilizada para el análisis."
+  },
+  {
+    title: "NLP",
+    description: "Procesamiento de lenguaje natural aplicado a comentarios positivos y negativos."
+  },
+  {
+    title: "HTML",
+    description: "Dashboard interactivo exportado y publicado mediante GitHub Pages."
+  },
+  {
+    title: "Red semántica",
+    description: "Identificación de comunidades de términos que aparecen juntos en las reseñas."
+  }
+];
+
+const metrics = [
+  {
+    title: "Base original",
+    value: "515K",
+    description: "Reseñas de hoteles europeos disponibles en la fuente pública de Kaggle."
+  },
+  {
+    title: "Muestra modelada",
+    value: "120K",
+    description: "Muestra utilizada para prototipar y generar el dashboard de forma eficiente."
+  },
+  {
+    title: "Rating",
+    value: "0-10",
+    description: "Score original normalizado a escala comparable de 1 a 5 para el análisis."
+  },
+  {
+    title: "Visualizaciones",
+    value: "3",
+    description: "Sankey, nube de palabras y red semántica construidos desde una sola base."
+  }
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Obtención de datos",
+    description:
+      "Carga de la base 515K Hotel Reviews Data in Europe desde Kaggle, utilizando KaggleHub para mantener trazabilidad y evitar subir archivos pesados al repositorio."
+  },
+  {
+    number: "02",
+    title: "Preparación del texto",
+    description:
+      "Unificación de las columnas Positive_Review y Negative_Review en un único campo textual, eliminando valores sin contenido como No Positive y No Negative."
+  },
+  {
+    number: "03",
+    title: "Limpieza y normalización",
+    description:
+      "Transformación del texto a minúsculas, eliminación de caracteres no alfabéticos, limpieza de espacios y exclusión de términos poco informativos mediante stopwords."
+  },
+  {
+    number: "04",
+    title: "Análisis de sentimiento",
+    description:
+      "Clasificación de comentarios en positivo, neutro o negativo mediante VADER, permitiendo comparar la polaridad textual con la calificación entregada por el usuario."
+  },
+  {
+    number: "05",
+    title: "Extracción de términos",
+    description:
+      "Uso de CountVectorizer para identificar palabras y bigramas frecuentes, asignando una frase dominante a cada reseña para construir los flujos del Sankey."
+  },
+  {
+    number: "06",
+    title: "Red de coocurrencias",
+    description:
+      "Construcción de una red semántica con NetworkX, donde los nodos representan términos y las conexiones indican cuántas veces aparecen juntos en las mismas reseñas."
+  },
+  {
+    number: "07",
+    title: "Detección de comunidades",
+    description:
+      "Aplicación de algoritmos de modularidad para agrupar términos que tienden a aparecer juntos, facilitando la lectura temática de la experiencia del huésped."
+  },
+  {
+    number: "08",
+    title: "Dashboard interactivo",
+    description:
+      "Exportación del resultado como HTML interactivo con KPIs, Sankey filtrable, wordcloud y red semántica, publicado posteriormente con GitHub Pages."
+  }
+];
+
+const skills = [
+  {
+    title: "Procesamiento de lenguaje natural",
+    description:
+      "Limpieza, transformación y análisis de comentarios abiertos para convertir texto no estructurado en variables analíticas."
+  },
+  {
+    title: "Análisis de sentimiento",
+    description:
+      "Uso de VADER para clasificar polaridad textual y contrastarla con ratings numéricos entregados por usuarios."
+  },
+  {
+    title: "Visualización interactiva",
+    description:
+      "Diseño de un dashboard HTML con filtros, tooltips, Sankey, wordcloud y red semántica usando Pyecharts y ECharts."
+  },
+  {
+    title: "Análisis de redes",
+    description:
+      "Construcción de grafos de coocurrencia con NetworkX para identificar relaciones entre términos frecuentes."
+  },
+  {
+    title: "Detección de comunidades",
+    description:
+      "Agrupación automática de conceptos relacionados para interpretar temas recurrentes como ubicación, personal, desayuno o limpieza."
+  },
+  {
+    title: "Storytelling analítico",
+    description:
+      "Transformación de un flujo técnico de NLP en una pieza de portafolio comprensible para audiencias técnicas y de negocio."
+  }
+];
+
+const techStack = [
+  "Python",
+  "Pandas",
+  "Scikit-learn",
+  "VADER",
+  "NetworkX",
+  "Pyecharts",
+  "ECharts",
+  "WordCloud",
+  "KaggleHub",
+  "NLP",
+  "HTML interactivo"
+];
 ---
 
 <html lang="es">
-  <head>
-    <title>{title}</title>
-    <meta name="description" content={description} />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <body>
-    <main class="project-page">
-      <section class="hero">
-        <p class="eyebrow">Proyecto de Data Science · NLP · Visualización interactiva</p>
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
 
-        <h1>{title}</h1>
+  <!-- Open Graph / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDescription} />
+  <meta property="og:image" content={previewImage} />
+  <meta property="og:image:secure_url" content={previewImage} />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:site_name" content="Camilo Acuña | Portafolio" />
+  <meta property="og:locale" content="es_CL" />
 
-        <p class="lead">
-          {description}
-        </p>
+  <!-- Twitter / generic social preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={pageDescription} />
+  <meta name="twitter:image" content={previewImage} />
 
-        <div class="actions">
-          <a href={dashboardUrl} target="_blank" rel="noopener noreferrer">
-            Ver dashboard interactivo
-          </a>
+  <link rel="canonical" href={pageUrl} />
+</head>
 
-          <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-            Ver código en GitHub
-          </a>
+  <body class="min-h-screen bg-[#080D18] text-slate-100 antialiased">
+    <main class="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.20),transparent_34%),radial-gradient(circle_at_top_right,rgba(16,185,129,0.16),transparent_32%),linear-gradient(180deg,#080D18_0%,#0F172A_50%,#080D18_100%)]">
+      
+      <!-- Header -->
+      <header class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
+        <a
+          href="/"
+          class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-sky-400/50 hover:text-white"
+        >
+          ← Volver al portafolio
+        </a>
+
+        <a
+          href="/CV_Camilo_A.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-sky-400/50 hover:text-white"
+        >
+          Ver CV
+        </a>
+      </header>
+
+      <!-- Hero -->
+      <section class="mx-auto grid max-w-7xl items-center gap-12 px-6 py-12 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-20">
+        <div>
+          <p class="mb-5 inline-flex rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-2 text-sm font-semibold text-sky-300">
+            Python · NLP · Visualización interactiva · Redes semánticas
+          </p>
+
+          <h1 class="max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
+            Dashboard NLP de Reseñas Hoteleras
+          </h1>
+
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            Proyecto de análisis de texto aplicado a reseñas hoteleras en Europa.
+            El objetivo fue transformar comentarios abiertos en una herramienta
+            interactiva capaz de identificar términos frecuentes, sentimiento textual,
+            flujos entre calificación y conceptos dominantes, y comunidades semánticas
+            de coocurrencia.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            {techStack.map((item) => (
+              <span class="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">
+                {item}
+              </span>
+            ))}
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a
+              href={dashboardUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-xl bg-sky-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-sky-500/20 transition hover:bg-sky-300"
+            >
+              Ver dashboard interactivo
+            </a>
+
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 transition hover:border-sky-400/60 hover:text-white"
+            >
+              Ver repositorio
+            </a>
+
+            <a
+              href={notebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 transition hover:border-sky-400/60 hover:text-white"
+            >
+              Ver notebook
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero visual card -->
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/40">
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/80">
+            <img
+              src="/images/proyectos/preview_dashboard.png"
+              alt="Vista previa del dashboard NLP de reseñas hoteleras"
+              class="h-full w-full object-cover"
+            />
+          </div>
+
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl bg-white/[0.05] p-5">
+              <p class="text-sm text-slate-400">Base original</p>
+              <p class="mt-2 text-3xl font-bold text-white">515K</p>
+            </div>
+
+            <div class="rounded-2xl bg-white/[0.05] p-5">
+              <p class="text-sm text-slate-400">Visualizaciones</p>
+              <p class="mt-2 text-3xl font-bold text-white">3</p>
+            </div>
+
+            <div class="rounded-2xl bg-white/[0.05] p-5">
+              <p class="text-sm text-slate-400">Publicación</p>
+              <p class="mt-2 text-3xl font-bold text-white">Pages</p>
+            </div>
+
+            <div class="rounded-2xl bg-white/[0.05] p-5">
+              <p class="text-sm text-slate-400">Enfoque</p>
+              <p class="mt-2 text-3xl font-bold text-white">NLP</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="preview">
-        <img
-          src="/images/proyectos/nlp-hotel-reviews-dashboard.png"
-          alt="Vista previa del dashboard NLP de reseñas hoteleras"
-        />
+      <!-- Summary cards -->
+      <section class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="grid gap-4 md:grid-cols-4">
+          {kpis.map((kpi) => (
+            <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+              <p class="text-sm text-slate-400">{kpi.description}</p>
+              <p class="mt-3 text-2xl font-bold text-white">{kpi.title}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
-      <section class="content">
-        <h2>Descripción del proyecto</h2>
+      <!-- Interactive dashboard -->
+      <section id="dashboard" class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div class="mb-8">
+          <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">
+            Visualización interactiva
+          </p>
 
-        <p>
-          Desarrollé un dashboard interactivo en Python para analizar reseñas hoteleras
-          en Europa utilizando procesamiento de lenguaje natural. El proyecto transforma
-          comentarios positivos y negativos en visualizaciones que permiten identificar
-          patrones de satisfacción, términos frecuentes y comunidades semánticas entre
-          conceptos mencionados por los huéspedes.
-        </p>
+          <h2 class="mt-3 text-3xl font-bold text-white">
+            Dashboard HTML con Sankey, Wordcloud y Red Semántica
+          </h2>
 
-        <p>
-          El análisis utiliza una base de más de 500 mil reseñas hoteleras. A partir de
-          esta información, se construyó un flujo automatizado para limpiar texto,
-          clasificar sentimiento, extraer términos frecuentes, calcular coocurrencias y
-          exportar un dashboard HTML interactivo.
-        </p>
+          <p class="mt-4 max-w-4xl leading-8 text-slate-300">
+            El dashboard integra KPIs ejecutivos, un Sankey filtrable para conectar
+            calificación, sentimiento y frase dominante, una nube de palabras para
+            identificar conceptos frecuentes y una red semántica para analizar
+            comunidades de términos relacionados.
+          </p>
+        </div>
 
-        <h2>Visualizaciones desarrolladas</h2>
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-3 shadow-2xl shadow-black/40">
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-white">
+            <iframe
+              title="Dashboard NLP de reseñas hoteleras"
+              src={dashboardUrl}
+              class="h-[560px] w-full md:h-[720px] lg:h-[820px]"
+              frameborder="0"
+              loading="lazy"
+            >
+            </iframe>
+          </div>
 
-        <ul>
-          <li>
-            <strong>Sankey filtrable:</strong> conecta calificación, sentimiento textual
-            y frase dominante.
-          </li>
-          <li>
-            <strong>Wordcloud:</strong> muestra las palabras y frases más frecuentes del
-            corpus de reseñas.
-          </li>
-          <li>
-            <strong>Red semántica:</strong> identifica comunidades de términos que tienden
-            a aparecer juntos.
-          </li>
-          <li>
-            <strong>KPIs ejecutivos:</strong> resumen volumen de reseñas, rating promedio,
-            porcentaje de buenas calificaciones y sentimiento textual.
-          </li>
-        </ul>
+          <div class="flex flex-wrap items-center justify-between gap-4 px-2 pt-4">
+            <p class="text-sm text-slate-400">
+              Dashboard interactivo generado con Python, Pyecharts, ECharts y publicado con GitHub Pages.
+            </p>
 
-        <h2>Stack tecnológico</h2>
+            <a
+              href={dashboardUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-xl border border-sky-400/30 bg-sky-400/10 px-4 py-2 text-sm font-semibold text-sky-300 transition hover:border-sky-400/70 hover:bg-sky-400/20"
+            >
+              Abrir en pantalla completa
+            </a>
+          </div>
+        </div>
+      </section>
 
-        <p>
-          Python · Pandas · Scikit-learn · VADER Sentiment · NetworkX · Pyecharts ·
-          ECharts · WordCloud · Matplotlib · KaggleHub · GitHub Pages
-        </p>
+      <!-- Preview gallery -->
+      <section class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div class="mb-10">
+          <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">
+            Vistas principales
+          </p>
 
-        <h2>Resultado</h2>
+          <h2 class="mt-3 text-3xl font-bold text-white">
+            Visualizaciones del proyecto
+          </h2>
 
-        <p>
-          El resultado final es una herramienta interactiva que permite explorar grandes
-          volúmenes de comentarios abiertos y convertirlos en información útil para
-          experiencia de cliente, hotelería, servicios y análisis de satisfacción.
-        </p>
+          <p class="mt-4 max-w-4xl leading-8 text-slate-300">
+            Las imágenes muestran las principales capas analíticas del dashboard:
+            vista general, flujo Sankey, nube de palabras y red semántica de coocurrencias.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          {imageGallery.map((image) => (
+            <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-sky-400/40 hover:bg-white/[0.07]">
+              <div class="overflow-hidden rounded-2xl border border-white/10 bg-white">
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  class="h-64 w-full object-cover object-top md:h-80"
+                  loading="lazy"
+                />
+              </div>
+
+              <h3 class="mt-5 text-xl font-semibold text-white">{image.title}</h3>
+
+              <p class="mt-3 leading-7 text-slate-300">
+                {image.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Context -->
+      <section class="mx-auto grid max-w-7xl gap-8 px-6 py-12 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">Contexto</p>
+          <h2 class="mt-3 text-3xl font-bold text-white">Problema abordado</h2>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <p class="leading-8 text-slate-300">
+            Las reseñas de clientes contienen información valiosa sobre experiencia,
+            satisfacción y puntos de mejora. Sin embargo, al estar escritas como texto
+            abierto, requieren procesamiento previo para transformarse en información
+            analítica estructurada.
+          </p>
+
+          <p class="mt-5 leading-8 text-slate-300">
+            Este proyecto aborda ese desafío mediante un flujo de NLP que permite pasar
+            desde comentarios positivos y negativos a una visualización interactiva capaz
+            de mostrar qué conceptos se repiten, cómo se relacionan con la calificación,
+            y qué grupos temáticos aparecen naturalmente dentro de las reseñas.
+          </p>
+        </div>
+      </section>
+
+      <!-- Data source -->
+      <section id="fuentes" class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">
+                Fuente de datos
+              </p>
+
+              <h2 class="mt-3 text-3xl font-bold text-white">
+                515K Hotel Reviews Data in Europe
+              </h2>
+
+              <p class="mt-4 leading-8 text-slate-300">
+                El proyecto utiliza una base pública de Kaggle con reseñas hoteleras,
+                puntajes de usuarios, nombres de hoteles, ubicaciones y textos separados
+                entre comentarios positivos y negativos.
+              </p>
+
+              <a
+                href={dataSourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-6 inline-flex rounded-xl border border-sky-400/30 bg-sky-400/10 px-4 py-2 text-sm font-semibold text-sky-300 transition hover:border-sky-400/70 hover:bg-sky-400/20"
+              >
+                Ver fuente original
+              </a>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-5">
+                <p class="text-sm text-slate-400">Texto analizado</p>
+                <p class="mt-2 font-semibold text-white">Positive_Review + Negative_Review</p>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-5">
+                <p class="text-sm text-slate-400">Variable numérica</p>
+                <p class="mt-2 font-semibold text-white">Reviewer_Score</p>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-5">
+                <p class="text-sm text-slate-400">Dominio</p>
+                <p class="mt-2 font-semibold text-white">Reseñas hoteleras</p>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-5">
+                <p class="text-sm text-slate-400">Publicación</p>
+                <p class="mt-2 font-semibold text-white">GitHub Pages</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Metrics -->
+      <section class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <div class="mb-8">
+            <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">
+              Configuración analítica
+            </p>
+
+            <h2 class="mt-3 text-3xl font-bold text-white">
+              Métricas y alcance del análisis
+            </h2>
+
+            <p class="mt-4 max-w-3xl text-slate-400">
+              El pipeline fue diseñado como una herramienta reutilizable para procesar bases
+              de reseñas y generar visualizaciones interactivas desde un bloque de configuración.
+            </p>
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-4">
+            {metrics.map((metric) => (
+              <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-5">
+                <p class="text-sm text-slate-400">{metric.title}</p>
+                <p class="mt-3 text-3xl font-bold text-white">{metric.value}</p>
+                <p class="mt-3 text-sm leading-6 text-slate-400">{metric.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical process -->
+      <section id="proceso" class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div class="mb-10">
+          <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">
+            Proceso técnico
+          </p>
+
+          <h2 class="mt-3 text-3xl font-bold text-white">
+            De reseñas abiertas a dashboard NLP interactivo
+          </h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {processSteps.map((step) => (
+            <article class="rounded-3xl border border-white/10 bg-white/[0.04] p-7 transition hover:border-sky-400/40 hover:bg-white/[0.07]">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-400 text-sm font-bold text-slate-950">
+                {step.number}
+              </div>
+
+              <h3 class="mt-5 text-xl font-semibold text-white">{step.title}</h3>
+
+              <p class="mt-3 leading-7 text-slate-300">
+                {step.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Methodology -->
+      <section class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+            <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">
+              Metodología
+            </p>
+
+            <h2 class="mt-3 text-3xl font-bold text-white">
+              Cómo se construyó la red semántica
+            </h2>
+
+            <p class="mt-6 leading-8 text-slate-300">
+              Primero se extrajeron términos y bigramas frecuentes del corpus de reseñas.
+              Luego se calculó la coocurrencia entre términos, considerando cuántas veces
+              dos conceptos aparecen dentro de una misma reseña.
+            </p>
+
+            <p class="mt-5 leading-8 text-slate-300">
+              Con esa matriz de relaciones se construyó un grafo en NetworkX. Cada nodo
+              representa un término, cada enlace representa una coocurrencia y el grosor
+              de la línea indica la intensidad de esa relación. Finalmente, se aplicó
+              detección de comunidades para agrupar términos que tienden a aparecer juntos.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+            <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">
+              Resultado
+            </p>
+
+            <h2 class="mt-3 text-3xl font-bold text-white">
+              Valor del proyecto
+            </h2>
+
+            <p class="mt-6 leading-8 text-slate-300">
+              El resultado permite explorar comentarios abiertos desde una perspectiva
+              ejecutiva y analítica. En lugar de revisar reseñas una por una, el dashboard
+              resume los principales conceptos, su relación con el sentimiento y los grupos
+              temáticos que emergen desde los datos.
+            </p>
+
+            <div class="mt-8 rounded-2xl border border-sky-400/20 bg-sky-400/10 p-5">
+              <p class="font-semibold text-sky-200">Lectura ejecutiva</p>
+              <p class="mt-2 leading-7 text-slate-300">
+                El dashboard permite identificar patrones asociados a ubicación, atención
+                del personal, desayuno, limpieza, comodidad y experiencia general del huésped.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills applied -->
+      <section class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">
+            Competencias aplicadas
+          </p>
+
+          <h2 class="mt-3 text-3xl font-bold text-white">
+            Qué demuestra este proyecto
+          </h2>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {skills.map((skill) => (
+              <div class="rounded-2xl bg-slate-950/60 p-5">
+                <p class="font-semibold text-white">{skill.title}</p>
+                <p class="mt-2 text-sm leading-6 text-slate-400">
+                  {skill.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Repository links -->
+      <section class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div class="rounded-3xl border border-white/10 bg-gradient-to-r from-sky-400/15 to-emerald-400/10 p-8">
+          <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">
+                Repositorio técnico
+              </p>
+
+              <h2 class="mt-3 text-3xl font-bold text-white">
+                Código, notebook y dashboard publicado
+              </h2>
+
+              <p class="mt-4 max-w-3xl leading-8 text-slate-300">
+                El repositorio contiene el notebook del análisis, el HTML interactivo publicado,
+                capturas previas del dashboard, dependencias del entorno y documentación técnica
+                del proyecto.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-4 lg:justify-end">
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-xl bg-sky-400 px-5 py-3 font-semibold text-slate-950 shadow-lg shadow-sky-500/20 transition hover:bg-sky-300"
+              >
+                Ver GitHub
+              </a>
+
+              <a
+                href={notebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 transition hover:border-sky-400/60 hover:text-white"
+              >
+                Ver notebook
+              </a>
+
+              <a
+                href={htmlOutputUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 transition hover:border-sky-400/60 hover:text-white"
+              >
+                Ver HTML
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LinkedIn preparation -->
+      <section class="mx-auto max-w-7xl px-6 py-8 pb-20 lg:px-8">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+          <p class="text-sm font-semibold uppercase tracking-widest text-sky-300">
+            Próxima publicación
+          </p>
+
+          <h2 class="mt-3 text-3xl font-bold text-white">
+            Preparado para storytelling en LinkedIn
+          </h2>
+
+          <p class="mt-5 max-w-4xl leading-8 text-slate-300">
+            Este proyecto puede convertirse en una publicación orientada a explicar cómo
+            transformar texto no estructurado en una herramienta visual de análisis de experiencia
+            de cliente, destacando el uso de NLP, visualización interactiva y redes semánticas.
+          </p>
+        </div>
       </section>
     </main>
   </body>
 </html>
-
-<style>
-  .project-page {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 56px 24px;
-  }
-
-  .eyebrow {
-    color: var(--color-accent, #2fae9b);
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 4vw, 3.4rem);
-    line-height: 1.05;
-    margin-bottom: 18px;
-  }
-
-  .lead {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: #64748b;
-    max-width: 850px;
-  }
-
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 28px;
-  }
-
-  .actions a {
-    display: inline-flex;
-    align-items: center;
-    padding: 12px 18px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 700;
-    background: #0f172a;
-    color: white;
-  }
-
-  .actions a:nth-child(2) {
-    background: #e2e8f0;
-    color: #0f172a;
-  }
-
-  .preview {
-    margin: 48px 0;
-  }
-
-  .preview img {
-    width: 100%;
-    border-radius: 18px;
-    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
-  }
-
-  .content {
-    display: grid;
-    gap: 18px;
-    font-size: 1rem;
-    line-height: 1.75;
-  }
-
-  .content h2 {
-    margin-top: 26px;
-    font-size: 1.6rem;
-  }
-
-  .content ul {
-    padding-left: 22px;
-  }
-
-  .content li {
-    margin-bottom: 10px;
-  }
-</style>
