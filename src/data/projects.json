@@ -2,18 +2,12 @@
   {
   "title": "Dashboard NLP de Reseñas Hoteleras",
   "description": "Proyecto de análisis de texto aplicado a más de 500 mil reseñas hoteleras en Europa. El dashboard permite explorar patrones de satisfacción mediante procesamiento de lenguaje natural, análisis de sentimiento, diagrama Sankey filtrable, nube de palabras y red semántica de coocurrencias. El flujo completo fue desarrollado en Python y exportado como una visualización interactiva en HTML.",
-  "images": [
-    "/images/proyectos/preview_dashboard.png",
-    "/images/proyectos/preview_sankey.png",
-    "/images/proyectos/preview_wordcloud.png",
-    "/images/proyectos/preview_network.png"
-  ],
+  "images": ["/images/proyectos/preview_dashboard.png", "/images/proyectos/preview_sankey.png", "/images/proyectos/preview_wordcloud.png", "/images/proyectos/preview_network.png"],
   "tech": ["Python", "Pandas", "Scikit-learn", "VADER", "NetworkX", "Pyecharts", "ECharts", "WordCloud", "NLP"],
   "platforms": ["web", "github"],
   "link": "/proyectos/nlp-hotel-reviews-dashboard/",
   "category": "Data Science"
-  }
-  
+  },
   {
   "title": "Predicción Probabilística de Consumo Energético",
   "description": "Proyecto de forecasting aplicado al consumo energético usando Python, series temporales, simulaciones Monte Carlo e intervalos de predicción. El proyecto permite visualizar escenarios futuros, cuantificar incertidumbre y comparar el pronóstico contra valores reales observados mediante un gráfico interactivo en Plotly.",
