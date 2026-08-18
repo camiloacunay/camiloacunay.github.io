@@ -1,0 +1,11 @@
+Tengo un conjunto de datos de ventas de comercio electrónico llamado ecommerce_sales.csv. Por favor, realiza un análisis exploratorio de datos (EDA) completo sobre él. Quiero ver:
+
+Dimensiones del dataset, tipos de datos (dtypes) y un resumen de valores nulos.
+Estadísticas descriptivas para todas las columnas numéricas.
+Gráficos de distribución para los ingresos (revenue) y la cantidad (quantity).
+Un mapa de calor de correlaciones para todas las columnas numéricas.
+Los 5 productos y categorías principales según ingresos totales.
+Desglose de los ingresos por región.
+Identifica y señala cualquier outlier, anomalía o problema de calidad de datos que encuentres.
+
+Guarda todos los gráficos como archivos PNG y entrégame un resumen escrito de los principales hallazgos.
