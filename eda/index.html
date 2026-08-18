@@ -59,6 +59,96 @@
       Guarda todos los gráficos como archivos <strong>PNG</strong> y entrégame un
       <strong>resumen escrito de los principales hallazgos</strong>.
     </p>
+
+    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #ddd;">
+
+    <h1>Prompt para limpieza de datos de clientes</h1>
+
+    <p>
+      Tengo un conjunto de datos de clientes desordenado llamado
+      <code>messy_customer_data.csv</code>.
+    </p>
+
+    <p>Por favor, <strong>límpialo completamente</strong>:</p>
+
+    <ul>
+      <li>Estandariza <code>customer_name</code> a formato <strong>Title Case</strong>.</li>
+      <li>Corrige y valida los formatos de <code>email</code>, marcando los que sean inválidos.</li>
+      <li>Estandariza los números de teléfono al formato <code>(XXX) XXX-XXXX</code>.</li>
+      <li>Convierte todos los valores de <code>signup_date</code> a un formato de fecha consistente <code>YYYY-MM-DD</code>.</li>
+      <li>Limpia <code>Annual_Revenue</code>: elimina <code>$</code> y comas, y conviértelo a tipo <code>float</code>.</li>
+      <li>Estandariza <code>Country</code> utilizando el nombre completo del país.</li>
+      <li>Corrige <code>Age</code>: elimina valores imposibles (menores que 0 o mayores que 120) y conviértelo a tipo <code>integer</code>.</li>
+      <li>Estandariza <code>is_active</code> a valores booleanos <code>True/False</code>.</li>
+      <li>Elimina las filas duplicadas.</li>
+    </ul>
+
+    <p>
+      Muéstrame una <strong>comparación del antes y después</strong> y guarda los datos limpios como
+      <code>cleaned_customer_data.csv</code>.
+    </p>
+
+    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #ddd;">
+
+    <h1>Prompt para crear un dashboard HTML de métricas empresariales</h1>
+
+    <p>
+      Tengo un archivo llamado <code>dashboard_data.csv</code> con
+      <strong>2 años de métricas empresariales mensuales</strong>,
+      correspondientes a <strong>4 regiones y 3 líneas de productos</strong>.
+    </p>
+
+    <p>Crea un <strong>dashboard en HTML</strong> con las siguientes visualizaciones:</p>
+
+    <ol>
+      <li>
+        <strong>Tendencia de ingresos por región</strong>
+        <ul>
+          <li>Un gráfico de líneas que muestre los ingresos a lo largo del tiempo.</li>
+          <li>Una línea por cada región.</li>
+        </ul>
+      </li>
+
+      <li>
+        <strong>Clientes nuevos vs. clientes perdidos (Churned Customers)</strong>
+        <ul>
+          <li>Un gráfico combinado.</li>
+          <li>Barras para los clientes nuevos.</li>
+          <li>Línea para los clientes perdidos.</li>
+          <li>Debe mostrar las tendencias mensuales.</li>
+        </ul>
+      </li>
+
+      <li>
+        <strong>Evolución del NPS</strong>
+        <ul>
+          <li>Un gráfico de líneas que muestre cómo ha evolucionado el <strong>NPS Score</strong> a lo largo del tiempo.</li>
+        </ul>
+      </li>
+
+      <li>
+        <strong>Resumen de KPIs (Summary Scorecard)</strong>
+        <ul>
+          <li>Para el mes más reciente (<strong>diciembre de 2024</strong>), muestra:</li>
+          <li>Ingresos totales.</li>
+          <li>Clientes nuevos.</li>
+          <li>Tasa de abandono o <strong>Churn Rate (%)</strong>.</li>
+          <li>NPS promedio.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <p>
+      Haz que el dashboard tenga una <strong>apariencia profesional</strong>,
+      como algo que podría mostrar al equipo directivo de la empresa.
+    </p>
+
+    <p>
+      Utiliza un <strong>esquema de colores limpio</strong>, un
+      <strong>diseño responsive</strong> y asegúrate de que sea algo que pueda
+      <strong>abrir directamente en cualquier navegador web</strong>.
+    </p>
   </div>
 </body>
 </html>
+
